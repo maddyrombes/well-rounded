@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Route, Link } from 'react-router-dom';
 import decode from 'jwt-decode';
-import AuthForm from './components/AuthForm';
+import RegisterForm from './components/RegisterForm';
+import LoginForm from './components/LoginForm';
 import { loginUser, registerUser } from './services/api-helper';
 
 class App extends Component {
@@ -39,7 +39,6 @@ class App extends Component {
 
   async handleLogin() {
     const token = await loginUser(this.state.authForm)
-
     const userData = decode(token.jwt);
     this.setState({
       currentUser: userData
@@ -51,26 +50,20 @@ class App extends Component {
   return (
     <div className="App">
       <header>
-        <h1>Welcome to Well Balanced</h1>
-          <div>
-            <h3>log in</h3>
-            <AuthForm
-              handleSubmit={this.handleLogin}
-              handleChange={this.handleAuthChange}
-              authForm={this.state.authForm}
-            />
-
-          </div>
+        <h1 className="logo">Well Balanced</h1>
+          <LoginForm
+            handleSubmit={this.handleLogin}
+            handleChange={this.handleAuthChange}
+            authForm={this.state.authForm}
+          />
       </header>
-          <div>
-            <h3>sign up</h3>
-            <AuthForm
-              handleSubmit={this.handleRegister}
-              handleChange={this.handleAuthChange}
-              authForm={this.state.authForm}
-            />
-          </div>
-
+        <div>
+          <RegisterForm
+            handleSubmit={this.handleRegister}
+            handleChange={this.handleAuthChange}
+            authForm={this.state.authForm}
+          />
+        </div>
     </div>
   );
 }}

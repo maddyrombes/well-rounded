@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css?family=Lora|Fira+Sans');
+
+body {
+    font-family: 'Lora', serif;
+    letter-spacing: 1px;
+}
+
+.logo {
+    margin-top: 5px;
+}
+
+header {
+    display: flex;
+    margin: 20px;
+}
+
+.login {
+    display: flex;
+    margin-left: 20%;
+}
+
+.login-username-form, .login-password-form {
+    height: 15px;
+    margin: 15px 10px 10px 0;
+}
+
+button {
+    width: 70px;
+    height: 30px;
+    background-color: white;
+    border-radius: 50px;
+    font-family: 'Fira Sans', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.login-btn {
+    margin-top: 10px;
+}
+
+.signup-form {
+    margin-left: 60%;
+    margin-top: 20%;
+}
