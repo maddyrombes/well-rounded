@@ -10,7 +10,7 @@ export default function AuthForm(props) {
         e.preventDefault();
         handleSubmit();
       }}>
-        <input name="email" type="text" value={authForm.email} onChange={handleChange}/>
+        <input name="username" type="text" value={authForm.username} onChange={handleChange}/>
         <input name="password" type="password" value= {authForm.password} onChange={handleChange} />
         <button>Submit</button>
       </form>
