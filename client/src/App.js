@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
+import { Route, Link } from 'react-router-dom';
 import decode from 'jwt-decode';
 import RegisterForm from './components/RegisterForm';
 import LoginForm from './components/LoginForm';
 import { loginUser, registerUser } from './services/api-helper';
+import UserProfile from './components/UserProfile';
 
 class App extends Component {
   constructor(props) {
@@ -51,19 +53,26 @@ class App extends Component {
     <div className="App">
       <header>
         <h1 className="logo">Well Rounded</h1>
+        <Route exact path="/" render={() => (
           <LoginForm
             handleSubmit={this.handleLogin}
             handleChange={this.handleAuthChange}
             authForm={this.state.authForm}
           />
+        )} />
       </header>
         <div>
+        <Route exact path="/" render={() => (
           <RegisterForm
             handleSubmit={this.handleRegister}
             handleChange={this.handleAuthChange}
             authForm={this.state.authForm}
           />
+        )} />
         </div>
+        <Route exact path="/users/:id" render={() => (
+          <UserProfile />
+        )} />
     </div>
   );
 }}
