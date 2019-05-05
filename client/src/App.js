@@ -50,7 +50,7 @@ class App extends Component {
   return (
     <div className="App">
       <header>
-        <h1 className="logo">Well Balanced</h1>
+        <h1 className="logo">Well Rounded</h1>
           <LoginForm
             handleSubmit={this.handleLogin}
             handleChange={this.handleAuthChange}
