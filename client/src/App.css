@@ -11,12 +11,13 @@ body {
 
 header {
     display: flex;
-    margin: 20px;
+    justify-content: space-between;
+    margin: 20px 50px 20px 50px;
+    border-bottom: 1px solid black;
 }
 
 .login {
     display: flex;
-    margin-left: 20%;
 }
 
 .login-username-form, .login-password-form {
