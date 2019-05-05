@@ -1,6 +1,7 @@
 class User < ApplicationRecord
+    has_many :ratings
+
     has_secure_password
-    validates :email, presence: true
 
     def to_token_payload
         {
