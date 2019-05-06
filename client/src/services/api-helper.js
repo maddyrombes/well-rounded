@@ -9,7 +9,7 @@ export const showUserProfile = (id) => {
 export const loginUser = (loginData) => {
   const opts = {
     method: 'POST',
-    body: JSON.stringify({ auth: loginData }),
+    body: JSON.stringify(loginData),
     headers: {
       'Content-Type': 'application/json'
     }
