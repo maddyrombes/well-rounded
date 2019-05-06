@@ -12,7 +12,6 @@ class App extends Component {
     super(props)
     this.state = {
       currentUser: null,
-      user: null,
       userRatings: [],
       authForm: {
         username: '',
@@ -56,9 +55,8 @@ class App extends Component {
   //FETCH USER DATA
   
   async getUserRatings(id) {
-    const user = await showUserProfile(id)
-    console.log(user)
-    this.setState({ user })
+    const currentUser = await showUserProfile(id)
+    this.setState({ currentUser })
   }
 
   render() {
@@ -82,10 +80,11 @@ class App extends Component {
           />
         )} />
         </div>
-        <Route exact path="/users/:id" render={() => (
+        <Route exact path="/users/:id" render={(props) => (
           <UserProfile 
+            {...props}
             ratings={this.state.userRatings}
-            user={this.state.user}
+            currentUser={this.state.currentUser}
             getUserRatings={this.getUserRatings}
           />
         )} />

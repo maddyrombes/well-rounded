@@ -14,11 +14,11 @@ export const loginUser = (loginData) => {
       'Content-Type': 'application/json'
     }
   }
-  return fetch(`${baseUrl}/user_token`, opts)
+  return fetch(`${baseUrl}/auth/login`, opts)
     .then(resp => resp.json())
     .catch(e => e)
 }
-  
+
 export const registerUser = (registerData) => {
   const opts = {
     method: 'POST',
