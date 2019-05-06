@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Route, Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import decode from 'jwt-decode';
 import RegisterForm from './components/RegisterForm';
 import LoginForm from './components/LoginForm';
-import { loginUser, registerUser } from './services/api-helper';
+import { showUserProfile, loginUser, registerUser } from './services/api-helper';
 import UserProfile from './components/UserProfile';
 
 class App extends Component {
@@ -12,6 +12,7 @@ class App extends Component {
     super(props)
     this.state = {
       currentUser: null,
+      userRatings: [],
       authForm: {
         username: '',
         password: ''
@@ -20,7 +21,10 @@ class App extends Component {
     this.handleAuthChange = this.handleAuthChange.bind(this);
     this.handleRegister = this.handleRegister.bind(this);
     this.handleLogin = this.handleLogin.bind(this);
+    this.getUserRatings = this.getUserRatings.bind(this)
   }
+
+  //AUTH
 
   handleAuthChange(e) {
     const { name, value } = e.target;
@@ -41,18 +45,24 @@ class App extends Component {
 
   async handleLogin() {
     const token = await loginUser(this.state.authForm)
-    const userData = decode(token.jwt);
+    const userData = decode(token.token);
     this.setState({
       currentUser: userData
     })
-    localStorage.setItem("jwt", token.jwt)
+    localStorage.setItem("jwt", token.token)
+  }
+
+  //FETCH USER DATA
+  
+  async getUserRatings(id) {
+    const currentUser = await showUserProfile(id)
+    this.setState({ currentUser })
   }
 
   render() {
   return (
     <div className="App">
       <header>
-        <h1 className="logo">Well Rounded</h1>
         <Route exact path="/" render={() => (
           <LoginForm
             handleSubmit={this.handleLogin}
@@ -70,8 +80,13 @@ class App extends Component {
           />
         )} />
         </div>
-        <Route exact path="/users/:id" render={() => (
-          <UserProfile />
+        <Route exact path="/users/:id" render={(props) => (
+          <UserProfile 
+            {...props}
+            ratings={this.state.userRatings}
+            currentUser={this.state.currentUser}
+            getUserRatings={this.getUserRatings}
+          />
         )} />
     </div>
   );

@@ -5,11 +5,11 @@ body {
     letter-spacing: 1px;
 }
 
-.logo {
+.loginform-header-logo {
     margin-top: 5px;
 }
 
-header {
+.loginform-header {
     display: flex;
     justify-content: space-between;
     margin: 20px 50px 20px 50px;
@@ -42,4 +42,93 @@ button {
 .signup-form {
     margin-left: 60%;
     margin-top: 20%;
+}
+
+.userprofile-header {
+    display: flex;
+    border-bottom: 1px solid black;
+}
+
+.userprofile-logo {
+    margin-top: 20px;
+    margin-left: 50px;
+    width: 100%;
+}
+
+.userprofile-logout {
+    margin-top: 30px;
+    margin-right: 50px;
+}
+
+.userprofile-welcome {
+    margin-left: 100px;
+    margin-top: 100px;
+}
+
+.userprofile-h3 {
+    margin-left: 100px;
+}
+
+.userprofile-p {
+    margin-left: 100px;
+}
+
+.userprofile-data {
+    display: flex;
+    justify-content: center;
+}
+
+.userprofile-ratings {
+    margin-left: 50%;
+}
+
+.piechart {
+    width: 450px;
+}
+
+.userprofile-key {
+    margin-left: 30px;
+    margin-top: 100px;
+}
+
+.key {
+    margin-top: 5px;
+}
+
+.box {
+    float: left;
+    width: 20px;
+    height: 20px;
+}
+
+.f-color {
+    background: #E38627;
+}
+
+.ll-color {
+    background: #E2615C;
+}
+
+.ff-color {
+    background: #BC5581;
+}
+
+.w-color {
+    background: #81578D;
+}
+
+.c-color {
+    background: #48547B;
+}
+
+.e-color {
+    background: #2F4858;
+}
+
+.he-color {
+    background: #00725F;
+}
+
+.ss-color {
+    background: #3B8728;
 }

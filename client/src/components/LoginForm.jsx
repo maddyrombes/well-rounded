@@ -3,7 +3,8 @@ import React from 'react';
 export default function LoginForm(props) {
   const { authForm, handleChange, handleSubmit } = props;
   return (
-    <div>
+    <div className="loginform-header">
+      <h1 className="loginform-header-logo">Well Rounded</h1>
       <form className="login" onSubmit={(e)=>{
         e.preventDefault();
         handleSubmit();
