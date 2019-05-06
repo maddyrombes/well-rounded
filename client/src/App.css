@@ -5,11 +5,11 @@ body {
     letter-spacing: 1px;
 }
 
-.logo {
+.loginform-header-logo {
     margin-top: 5px;
 }
 
-header {
+.loginform-header {
     display: flex;
     justify-content: space-between;
     margin: 20px 50px 20px 50px;
@@ -42,4 +42,14 @@ button {
 .signup-form {
     margin-left: 60%;
     margin-top: 20%;
+}
+
+.userprofile-logo {
+    margin-top: 20px;
+    margin-left: 50px;
+}
+
+.userprofile-welcome {
+    margin-left: 100px;
+    margin-top: 100px;
 }
