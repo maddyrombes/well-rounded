@@ -15,12 +15,16 @@ export default class UserProfile extends Component {
           <>
             <div className="userprofile-header">
               <h1 className="userprofile-logo">Well Rounded</h1>
-              <p className="userprofile-logout">logout</p>
+              <button className="userprofile-edit-btn">Edit your metrics</button>
+              <p className="userprofile-logout" onClick={this.props.logOut}>logout</p>
             </div>
 
-            <h2 className="userprofile-welcome">Welcome, {currentUser.name}.</h2>
-            <h3 className="userprofile-h3">Here are your metrics for today.</h3>
-            <p className="userprofile-p">You're doing pretty well on [] and [],<br/> but could use some work with [] and [].</p>
+              <h2 className="userprofile-welcome">Welcome, {currentUser.name}.</h2>
+              <h3 className="userprofile-h3">Here are your metrics for today.</h3>
+              <p className="userprofile-p">You're doing pretty well on [] and [],<br/> but could use some work with [] and [].</p>
+        
+
+
 
             <div className="userprofile-data">
 

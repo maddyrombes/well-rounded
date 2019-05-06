@@ -22,7 +22,16 @@ class App extends Component {
     this.handleRegister = this.handleRegister.bind(this);
     this.handleLogin = this.handleLogin.bind(this);
     this.getUserRatings = this.getUserRatings.bind(this)
+    this.logOut = this.logOut.bind(this)
   }
+
+  // componentDidMount() {
+  //   const token = localStorage.getItem('jwt')
+  //   if (token) {
+  //     const decodedToken = decode(token)
+  //     this.setState({ currentUser: decodedToken })
+  //   }
+  // }
 
   //AUTH
 
@@ -50,6 +59,13 @@ class App extends Component {
       currentUser: userData
     })
     localStorage.setItem("jwt", token.token)
+  }
+
+  logOut() {
+    localStorage.removeItem("jwt");
+    this.setState({
+      currentUser: null
+    })
   }
 
   //FETCH USER DATA
@@ -86,6 +102,7 @@ class App extends Component {
             ratings={this.state.userRatings}
             currentUser={this.state.currentUser}
             getUserRatings={this.getUserRatings}
+            logOut={this.logOut}
           />
         )} />
     </div>

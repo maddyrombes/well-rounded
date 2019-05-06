@@ -73,6 +73,13 @@ button {
     margin-left: 100px;
 }
 
+.userprofile-edit-btn {
+    float: right;
+    margin-right: 50px;
+    margin-top: 25px;
+    width: 190px;
+}
+
 .userprofile-data {
     display: flex;
     justify-content: center;
