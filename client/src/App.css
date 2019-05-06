@@ -57,3 +57,45 @@ button {
 .userprofile-ratings {
     margin-left: 50%;
 }
+
+.piechart {
+    width: 450px;
+}
+
+.box {
+    float: left;
+    width: 20px;
+    height: 20px;
+}
+
+.f-color {
+    background: #E38627;
+}
+
+.ll-color {
+    background: #E2615C;
+}
+
+.ff-color {
+    background: #BC5581;
+}
+
+.w-color {
+    background: #81578D;
+}
+
+.c-color {
+    background: #48547B;
+}
+
+.e-color {
+    background: #2F4858;
+}
+
+.he-color {
+    background: #00725F;
+}
+
+.ss-color {
+    background: #3B8728;
+}

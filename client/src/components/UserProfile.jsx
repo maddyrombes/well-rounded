@@ -14,10 +14,29 @@ export default class UserProfile extends Component {
         {currentUser && 
           <>
             <h1 className="userprofile-logo">Well Rounded</h1>
-            <h2 className="userprofile-welcome">Welcome, {currentUser.name}</h2>
+            <h2 className="userprofile-welcome">Welcome, {currentUser.name}.</h2>
+            <div>
+              <div><div className="f-color box"></div>Finance: {currentUser.ratings[0].rating}</div>
+              <div><div className="ll-color box"></div>Love Life: {currentUser.ratings[1].rating}</div>
+              <div><div className="ff-color box"></div>Friends and Family: {currentUser.ratings[2].rating}</div>
+              <div><div className="w-color box"></div>Work: {currentUser.ratings[3].rating}</div>
+              <div><div className="c-color box"></div>Creativity: {currentUser.ratings[4].rating}</div>
+              <div><div className="e-color box"></div>Exercise: {currentUser.ratings[5].rating}</div>
+              <div><div className="he-color box"></div>Healthy Eating: {currentUser.ratings[6].rating}</div>
+              <div><div className="ss-color box"></div>Sprirituality / Self: {currentUser.ratings[7].rating}</div>
+            </div>
 
             <div className="userprofile-ratings">
-              <PieChart
+              <PieChart 
+                className="piechart"
+                lineWidth='50'
+                label
+                labelStyle={{
+                  fontSize: '5px',
+                  fontFamily: 'sans-serif'
+                }}
+                radius={42}
+                labelPosition={112}
                 data={[
                   { title: 'Finance', value: currentUser.ratings[0].rating, color: '#E38627' },
                   { title: 'Love Life', value: currentUser.ratings[1].rating, color: '#E2615C' },
