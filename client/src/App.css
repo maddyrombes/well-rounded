@@ -159,8 +159,13 @@ button {
 }
 
 .edit-form-div {
-    margin-left: 50px;
-    margin-top: 40px;
+    margin-left: 15%;
+    margin-top: 8%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 100% 100% 100% 100%;
+    justify-items: left;
+    align-items: center;
 }
 
 .editform {
@@ -168,6 +173,6 @@ button {
 }
 
 .edit-submit-btn {
-    margin-left: 50px;
     width: 110px;
+    margin-left: 140%;
 }
