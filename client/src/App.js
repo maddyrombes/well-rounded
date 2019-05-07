@@ -21,23 +21,24 @@ class App extends Component {
         username: '',
         password: ''
       },
-      formData: {
-        f_rating: '',
-        ll_rating: '',
-        ff_rating: '',
-        w_rating: '',
-        c_rating: '',
-        e_rating: '',
-        he_rating: '',
-        ss_rating: ''
-      }
+      f_rating: '',
+      ll_rating: '',
+      ff_rating: '',
+      w_rating: '',
+      c_rating: '',
+      e_rating: '',
+      he_rating: '',
+      ss_rating: ''
+      
     }
-    this.handleLoginAuthChange = this.handleLoginAuthChange.bind(this);
-    this.handleRegisterAuthChange = this.handleRegisterAuthChange.bind(this);
-    this.handleRegister = this.handleRegister.bind(this);
-    this.handleLogin = this.handleLogin.bind(this);
+    this.handleLoginAuthChange = this.handleLoginAuthChange.bind(this)
+    this.handleRegisterAuthChange = this.handleRegisterAuthChange.bind(this)
+    this.handleRegister = this.handleRegister.bind(this)
+    this.handleLogin = this.handleLogin.bind(this)
     this.getUserRatings = this.getUserRatings.bind(this)
     this.logOut = this.logOut.bind(this)
+    this.handleUpdateForm = this.handleUpdateForm.bind(this)
+    this.updateRatings = this.updateRatings.bind(this)
   }
 
   // componentDidMount() {
@@ -106,57 +107,58 @@ class App extends Component {
 
   handleUpdateForm(e) {
     this.setState({
-      formData: {
-        name: e.target.value
-      }
+      [e.target.name]: e.target.value
     })
   }
 
   async updateRatings(rating) {
-    const updatedRating = await putUserRatings(rating.id, this.state.formData)
+    const updatedRating = await putUserRatings(this.state.currentUser.id, this.state.formData)
     this.setState(prevState => ({
       rating: prevState.rating.map(e => e.id === rating.id ? updatedRating : e) 
     }))
   }
 
   render() {
-  return (
-    <div className="App">
-      <header>
-        <Route exact path="/" render={(props) => (
-          <LoginForm
-            {...props}
-            handleSubmit={this.handleLogin}
-            handleChange={this.handleLoginAuthChange}
-            loginForm={this.state.loginForm}
-          />
-        )} />
-      </header>
-        <Route exact path="/" render={() => (
-          <RegisterForm
-            handleSubmit={this.handleRegister}
-            handleChange={this.handleRegisterAuthChange}
-            registerForm={this.state.registerForm}
-          />
-        )} />
-        <Route exact path="/users/:id" render={(props) => (
-          <UserProfile 
-            {...props}
-            currentUser={this.state.currentUser}
-            getUserRatings={this.getUserRatings}
-            logOut={this.logOut}
-          />
-        )} />
-        <Route exact path="/users/:id/edit" render={(props) => (
-          <EditRatings 
-            {...props}
-            currentUser={this.state.currentUser}
-            getUserRatings={this.getUserRatings}
-            formData={this.state.formData}
-          />
-        )} />
-    </div>
-  );
-}}
+    return (
+      <div className="App">
+        <header>
+          <Route exact path="/" render={(props) => (
+            <LoginForm
+              {...props}
+              handleSubmit={this.handleLogin}
+              handleChange={this.handleLoginAuthChange}
+              loginForm={this.state.loginForm}
+            />
+          )} />
+        </header>
+          <Route exact path="/" render={() => (
+            <RegisterForm
+              handleSubmit={this.handleRegister}
+              handleChange={this.handleRegisterAuthChange}
+              registerForm={this.state.registerForm}
+            />
+          )} />
+          <Route exact path="/users/:id" render={(props) => (
+            <UserProfile 
+              {...props}
+              currentUser={this.state.currentUser}
+              getUserRatings={this.getUserRatings}
+              logOut={this.logOut}
+            />
+          )} />
+          <Route exact path="/users/:id/edit" render={(props) => (
+            <EditRatings 
+              {...props}
+              currentUser={this.state.currentUser}
+              getUserRatings={this.getUserRatings}
+              formData={this.state.formData}
+              handleUpdateForm={this.handleUpdateForm}
+              updateRatings={this.updateRatings}
+            />
+          )} />
+      </div>
+    );
+  }
+}
 
 export default App;

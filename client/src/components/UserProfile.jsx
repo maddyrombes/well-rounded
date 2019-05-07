@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import PieChart from 'react-minimal-pie-chart';
 
 export default class UserProfile extends Component {
@@ -15,7 +16,9 @@ export default class UserProfile extends Component {
           <>
             <div className="userprofile-header">
               <h1 className="userprofile-logo">Well Rounded</h1>
-              <button className="userprofile-edit-btn">Edit your metrics</button>
+
+              <Link to={`/users/${this.props.match.params.id}/edit`} className="userprofile-edit-btn">Edit your metrics</Link>
+
               <p className="userprofile-logout" onClick={this.props.logOut}>logout</p>
             </div>
 
