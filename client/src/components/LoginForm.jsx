@@ -1,13 +1,18 @@
-import React from 'react';
+import React, {Component} from 'react';
+import { withRouter } from 'react-router-dom'
 
-export default function LoginForm(props) {
-  const { loginForm, handleChange, handleSubmit } = props;
+class LoginForm extends Component {
+  
+  render() {
+    const { loginForm, handleChange, handleSubmit } = this.props;
+    const { currentUser } = this.props
+
   return (
     <div className="loginform-header">
       <h1 className="loginform-header-logo">Well Rounded</h1>
-      <form className="login" onSubmit={(e)=>{
+      <form className="login" onSubmit={async (e)=>{
         e.preventDefault();
-        handleSubmit(loginForm);
+        await handleSubmit(loginForm);
       }}>
         <p>username</p>
         <input 
@@ -28,4 +33,6 @@ export default function LoginForm(props) {
       </form>
     </div>
   )
-}
+}}
+
+export default withRouter(LoginForm)

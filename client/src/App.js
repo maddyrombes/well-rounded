@@ -116,6 +116,7 @@ class App extends Component {
     this.setState(prevState => ({
       rating: prevState.rating.map(e => e.id === rating.id ? updatedRating : e) 
     }))
+
   }
 
   render() {
@@ -128,6 +129,7 @@ class App extends Component {
               handleSubmit={this.handleLogin}
               handleChange={this.handleLoginAuthChange}
               loginForm={this.state.loginForm}
+              currentUser={this.state.currentUser}
             />
           )} />
         </header>
