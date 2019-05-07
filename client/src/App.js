@@ -1,24 +1,39 @@
-import React, { Component } from 'react';
-import './App.css';
-import { Route } from 'react-router-dom';
-import decode from 'jwt-decode';
-import RegisterForm from './components/RegisterForm';
-import LoginForm from './components/LoginForm';
-import { showUserProfile, loginUser, registerUser } from './services/api-helper';
-import UserProfile from './components/UserProfile';
+import React, { Component } from 'react'
+import './App.css'
+import { Route } from 'react-router-dom'
+import decode from 'jwt-decode'
+import RegisterForm from './components/RegisterForm'
+import LoginForm from './components/LoginForm'
+import EditRatings from './components/EditRatings'
+import { showUserProfile, loginUser, registerUser, putUserRatings } from './services/api-helper'
+import UserProfile from './components/UserProfile'
 
 class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
       currentUser: null,
-      userRatings: [],
-      authForm: {
+      loginForm: {
         username: '',
         password: ''
+      },
+      registerForm: {
+        username: '',
+        password: ''
+      },
+      formData: {
+        f_rating: '',
+        ll_rating: '',
+        ff_rating: '',
+        w_rating: '',
+        c_rating: '',
+        e_rating: '',
+        he_rating: '',
+        ss_rating: ''
       }
     }
-    this.handleAuthChange = this.handleAuthChange.bind(this);
+    this.handleLoginAuthChange = this.handleLoginAuthChange.bind(this);
+    this.handleRegisterAuthChange = this.handleRegisterAuthChange.bind(this);
     this.handleRegister = this.handleRegister.bind(this);
     this.handleLogin = this.handleLogin.bind(this);
     this.getUserRatings = this.getUserRatings.bind(this)
@@ -35,12 +50,24 @@ class App extends Component {
 
   //AUTH
 
-  handleAuthChange(e) {
+  handleLoginAuthChange(e) {
     const { name, value } = e.target;
     this.setState(prevState => (
       {
-        authForm: {
-          ...prevState.authForm,
+        loginForm: {
+          ...prevState.loginForm,
+          [name]: value
+        }
+      }
+    ))
+  }
+
+  handleRegisterAuthChange(e) {
+    const { name, value } = e.target;
+    this.setState(prevState => (
+      {
+        registerForm: {
+          ...prevState.registerForm,
           [name]: value
         }
       }
@@ -48,12 +75,12 @@ class App extends Component {
   }
 
   async handleRegister() {
-    await registerUser(this.state.authForm);
-    this.handleLogin();
+    await registerUser(this.state.registerForm);
+    this.handleLogin(this.state.registerForm);
   }
 
-  async handleLogin() {
-    const token = await loginUser(this.state.authForm)
+  async handleLogin(form) {
+    const token = await loginUser(form)
     const userData = decode(token.token);
     this.setState({
       currentUser: userData
@@ -75,34 +102,57 @@ class App extends Component {
     this.setState({ currentUser })
   }
 
+  //EDIT
+
+  handleUpdateForm(e) {
+    this.setState({
+      formData: {
+        name: e.target.value
+      }
+    })
+  }
+
+  async updateRatings(rating) {
+    const updatedRating = await putUserRatings(rating.id, this.state.formData)
+    this.setState(prevState => ({
+      rating: prevState.rating.map(e => e.id === rating.id ? updatedRating : e) 
+    }))
+  }
+
   render() {
   return (
     <div className="App">
       <header>
-        <Route exact path="/" render={() => (
+        <Route exact path="/" render={(props) => (
           <LoginForm
+            {...props}
             handleSubmit={this.handleLogin}
-            handleChange={this.handleAuthChange}
-            authForm={this.state.authForm}
+            handleChange={this.handleLoginAuthChange}
+            loginForm={this.state.loginForm}
           />
         )} />
       </header>
-        <div>
         <Route exact path="/" render={() => (
           <RegisterForm
             handleSubmit={this.handleRegister}
-            handleChange={this.handleAuthChange}
-            authForm={this.state.authForm}
+            handleChange={this.handleRegisterAuthChange}
+            registerForm={this.state.registerForm}
           />
         )} />
-        </div>
         <Route exact path="/users/:id" render={(props) => (
           <UserProfile 
             {...props}
-            ratings={this.state.userRatings}
             currentUser={this.state.currentUser}
             getUserRatings={this.getUserRatings}
             logOut={this.logOut}
+          />
+        )} />
+        <Route exact path="/users/:id/edit" render={(props) => (
+          <EditRatings 
+            {...props}
+            currentUser={this.state.currentUser}
+            getUserRatings={this.getUserRatings}
+            formData={this.state.formData}
           />
         )} />
     </div>

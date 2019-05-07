@@ -91,11 +91,13 @@ button {
 
 .piechart {
     width: 450px;
+    position: fixed;
 }
 
 .userprofile-key {
     margin-left: 30px;
     margin-top: 100px;
+    position: fixed;
 }
 
 .key {
@@ -138,4 +140,29 @@ button {
 
 .ss-color {
     background: #3B8728;
+}
+
+.edit-header {
+    display: flex;
+    border-bottom: 1px solid black;
+}
+
+.edit-logo {
+    margin-top: 20px;
+    margin-left: 50px;
+    width: 100%;
+}
+
+.edit-form-div {
+    margin-left: 50px;
+    margin-top: 40px;
+}
+
+.editform {
+    width: 100px;
+}
+
+.edit-submit-btn {
+    margin-left: 50px;
+    width: 110px;
 }

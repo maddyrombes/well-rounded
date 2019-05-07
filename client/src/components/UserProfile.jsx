@@ -22,9 +22,6 @@ export default class UserProfile extends Component {
               <h2 className="userprofile-welcome">Welcome, {currentUser.name}.</h2>
               <h3 className="userprofile-h3">Here are your metrics for today.</h3>
               <p className="userprofile-p">You're doing pretty well on [] and [],<br/> but could use some work with [] and [].</p>
-        
-
-
 
             <div className="userprofile-data">
 
