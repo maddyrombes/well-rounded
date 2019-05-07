@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { Redirect } from 'react-router'
+import { withRouter } from 'react-router'
 
-export default class EditRatings extends Component {
+class EditRatings extends Component {
 
     componentDidMount() {
         this.props.getUserRatings(this.props.match.params.id)
@@ -16,7 +16,12 @@ export default class EditRatings extends Component {
         <div className="edit-header">
             <h1 className="edit-logo">Well Rounded</h1>
         </div>
-        <form className="edit-form-div">
+        <form className="edit-form-div" onSubmit={(e) => {
+            e.preventDefault()
+            this.props.updateRatings()
+            this.props.history.push(`/users/${this.props.currentUser.id}`)
+        }
+        }>
             <div>
             <label>Finance</label>
             <input 
@@ -113,7 +118,7 @@ export default class EditRatings extends Component {
                 value={this.props.ss_rating}
                 onChange={this.props.handleUpdateForm} />
             </div>
-            <button className="edit-submit-btn" onSubmit={this.props.updateRatings}>Save and go to profile</button>
+            <button className="edit-submit-btn">Save and go to profile</button>
         </form>
         </>
         }
@@ -121,3 +126,5 @@ export default class EditRatings extends Component {
     )
   }
 }
+
+export default withRouter(EditRatings)

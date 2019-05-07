@@ -10,10 +10,10 @@ class LoginForm extends Component {
   return (
     <div className="loginform-header">
       <h1 className="loginform-header-logo">Well Rounded</h1>
-      <form className="login" onSubmit={async (e)=>{
+      <form className="login" onSubmit={async (e) => {
         e.preventDefault();
         await handleSubmit(loginForm);
-        this.props.history.push(`/users/${this.props.currentUser.id}`)
+        this.props.history.push(`/users/${currentUser.id}`)
       }}>
         <p>username</p>
         <input 

@@ -112,11 +112,7 @@ class App extends Component {
   }
 
   async updateRatings(rating) {
-    const updatedRating = await putUserRatings(this.state.currentUser.id, this.state.formData)
-    this.setState(prevState => ({
-      rating: prevState.rating.map(e => e.id === rating.id ? updatedRating : e) 
-    }))
-
+    
   }
 
   render() {
@@ -133,11 +129,13 @@ class App extends Component {
             />
           )} />
         </header>
-          <Route exact path="/" render={() => (
+          <Route exact path="/" render={(props) => (
             <RegisterForm
+              {...props}
               handleSubmit={this.handleRegister}
               handleChange={this.handleRegisterAuthChange}
               registerForm={this.state.registerForm}
+              currentUser={this.state.currentUser}
             />
           )} />
           <Route exact path="/users/:id" render={(props) => (

@@ -1,13 +1,17 @@
-import React from 'react';
+import React, {Component} from 'react';
+import { withRouter } from 'react-router-dom'
 
-export default function RegisterForm(props) {
-  const { registerForm, handleChange, handleSubmit } = props;
+class RegisterForm extends Component {
+  render() {
+    const { registerForm, handleChange, handleSubmit } = this.props
+
   return (
     <div className="signup-form">
       <h3>sign up</h3>
-      <form onSubmit={(e)=>{
+      <form onSubmit={async (e) => {
         e.preventDefault();
-        handleSubmit();
+        await handleSubmit();
+        this.props.history.push(`/users/${this.props.currentUser.id}/edit`)
       }}>
         <p>username</p>
         <input name="username" type="text" value={registerForm.username} onChange={handleChange}/>
@@ -17,4 +21,6 @@ export default function RegisterForm(props) {
       </form>
     </div>
   )
-}
+}}
+
+export default withRouter(RegisterForm)

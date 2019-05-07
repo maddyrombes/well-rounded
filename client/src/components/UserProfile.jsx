@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import { Link, Redirect } from 'react-router-dom'
+import { Link, Redirect, withRouter } from 'react-router-dom'
 import PieChart from 'react-minimal-pie-chart';
 
-export default class UserProfile extends Component {
+class UserProfile extends Component {
 
   componentDidMount() {
     this.props.getUserRatings(this.props.match.params.id)
@@ -22,7 +22,13 @@ export default class UserProfile extends Component {
 
               <Link to={`/users/${this.props.match.params.id}/edit`} className="userprofile-edit-btn">Edit your metrics</Link>
 
-              <p className="userprofile-logout" onClick={this.props.logOut}>logout</p>
+              <button 
+                className="userprofile-logout" 
+                onSubmit={() => {
+                    this.props.logOut()
+                    this.props.history.push('/')
+                }}
+                >logout</button>
             </div>
 
               <h2 className="userprofile-welcome">Welcome, {currentUser.name}.</h2>
@@ -90,3 +96,5 @@ export default class UserProfile extends Component {
     )
   }
 }
+
+export default withRouter(UserProfile)
