@@ -13,6 +13,7 @@ class LoginForm extends Component {
       <form className="login" onSubmit={async (e)=>{
         e.preventDefault();
         await handleSubmit(loginForm);
+        this.props.history.push(`/users/${this.props.currentUser.id}`)
       }}>
         <p>username</p>
         <input 
@@ -24,12 +25,7 @@ class LoginForm extends Component {
           />
         <p>password</p>
         <input className="login-password-form" name="password" type="password" value= {loginForm.password} onChange={handleChange} />
-        <button 
-          className="login-btn"
-          onClick={(e => {
-            this.props.history.push(`/users/${this.props.currentUser.id}`)
-          })}
-          >Submit</button>
+        <button className="login-btn">Submit</button>
       </form>
     </div>
   )

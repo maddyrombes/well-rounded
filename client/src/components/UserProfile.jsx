@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import PieChart from 'react-minimal-pie-chart';
 
 export default class UserProfile extends Component {
@@ -9,6 +9,9 @@ export default class UserProfile extends Component {
   }
 
   render() {
+    if (!this.props.currentUser) {
+      return <Redirect to={`/users/${this.props.match.params.id}/edit`}></Redirect>
+    }
     const { currentUser } = this.props
     return (
       <div>
