@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-    # before_action :authorize_request, except: :create
     before_action :set_user, only: :show
 
     def user_params
@@ -22,6 +21,14 @@ class UsersController < ApplicationController
 
     def show
         render json: @user, include: :ratings
+    end
+
+    def update
+        if @user.update(user_params)
+          render json: @user
+        else
+          render json: @user.errors, status: :unprocessable_entity
+        end
     end
 
     private

@@ -31,3 +31,18 @@ export const registerUser = (registerData) => {
     .then(resp => resp.json())
     .catch(e => e)
 }
+
+export const putUserRatings = (id, item) => {
+  const opts = {
+    method: 'PUT',
+    body: JSON.stringify(item),
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${localStorage.getItem('jwt')}`
+    }
+  };
+
+  return fetch(`${baseUrl}/users/${id}`, opts)
+    .then(resp => resp.json())
+    .catch(e => e)
+}

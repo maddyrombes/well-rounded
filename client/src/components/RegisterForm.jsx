@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function RegisterForm(props) {
-  const { authForm, handleChange, handleSubmit } = props;
+  const { registerForm, handleChange, handleSubmit } = props;
   return (
     <div className="signup-form">
       <h3>sign up</h3>
@@ -10,9 +10,9 @@ export default function RegisterForm(props) {
         handleSubmit();
       }}>
         <p>username</p>
-        <input name="username" type="text" value={authForm.username} onChange={handleChange}/>
+        <input name="username" type="text" value={registerForm.username} onChange={handleChange}/>
         <p>password</p>
-        <input name="password" type="password" value= {authForm.password} onChange={handleChange} />
+        <input name="password" type="password" value= {registerForm.password} onChange={handleChange} />
         <button>Submit</button>
       </form>
     </div>
