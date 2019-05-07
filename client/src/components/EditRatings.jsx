@@ -30,7 +30,7 @@ class EditRatings extends Component {
                 type="number" 
                 min="1"
                 max="10"
-                // placeholder={currentUser.ratings[0].rating} 
+                placeholder={currentUser.ratings[0].rating} 
                 value={this.props.f_rating}
                 onChange={this.props.handleUpdateForm} />
             </div>
@@ -42,7 +42,7 @@ class EditRatings extends Component {
                 type="number" 
                 min="1"
                 max="10"
-                // placeholder={currentUser.ratings[1].rating}
+                placeholder={currentUser.ratings[1].rating}
                 value={this.props.ll_rating}
                 onChange={this.props.handleUpdateForm} />
             </div>
@@ -54,7 +54,7 @@ class EditRatings extends Component {
                 type="number" 
                 min="1"
                 max="10"
-                // placeholder={currentUser.ratings[2].rating}
+                placeholder={currentUser.ratings[2].rating}
                 value={this.props.ff_rating}
                 onChange={this.props.handleUpdateForm} />
             </div>
@@ -66,7 +66,7 @@ class EditRatings extends Component {
                 type="number" 
                 min="1"
                 max="10"
-                // placeholder={currentUser.ratings[3].rating}
+                placeholder={currentUser.ratings[3].rating}
                 value={this.props.w_rating}
                 onChange={this.props.handleUpdateForm} />
             </div>
@@ -78,7 +78,7 @@ class EditRatings extends Component {
                 type="number" 
                 min="1"
                 max="10"
-                // placeholder={currentUser.ratings[4].rating}
+                placeholder={currentUser.ratings[4].rating}
                 value={this.props.c_rating}
                 onChange={this.props.handleUpdateForm} />
             </div>
@@ -90,7 +90,7 @@ class EditRatings extends Component {
                 type="number" 
                 min="1"
                 max="10"
-                // placeholder={currentUser.ratings[5].rating}
+                placeholder={currentUser.ratings[5].rating}
                 value={this.props.e_rating}
                 onChange={this.props.handleUpdateForm} />
             </div>
@@ -102,7 +102,7 @@ class EditRatings extends Component {
                 type="number" 
                 min="1"
                 max="10"
-                // placeholder={currentUser.ratings[6].rating}
+                placeholder={currentUser.ratings[6].rating}
                 value={this.props.he_rating}
                 onChange={this.props.handleUpdateForm} />
             </div>
@@ -114,7 +114,7 @@ class EditRatings extends Component {
                 type="number" 
                 min="1"
                 max="10"
-                // placeholder={currentUser.ratings[7].rating}
+                placeholder={currentUser.ratings[7].rating}
                 value={this.props.ss_rating}
                 onChange={this.props.handleUpdateForm} />
             </div>

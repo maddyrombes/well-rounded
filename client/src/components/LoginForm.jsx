@@ -2,18 +2,19 @@ import React, {Component} from 'react';
 import { withRouter } from 'react-router-dom'
 
 class LoginForm extends Component {
+  componentDidMount() {
+    
+  }
   
   render() {
-    const { loginForm, handleChange, handleSubmit } = this.props;
-    const { currentUser } = this.props
+    const { loginForm, handleChange, handleSubmit, currentUser } = this.props;
 
   return (
     <div className="loginform-header">
       <h1 className="loginform-header-logo">Well Rounded</h1>
-      <form className="login" onSubmit={async (e) => {
+      <form className="login" onSubmit={(e) => {
         e.preventDefault();
-        await handleSubmit(loginForm);
-        this.props.history.push(`/users/${currentUser.id}`)
+        handleSubmit(loginForm);
       }}>
         <p>username</p>
         <input 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './App.css'
 import { Route } from 'react-router-dom'
+import { withRouter } from 'react-router'
 import decode from 'jwt-decode'
 import RegisterForm from './components/RegisterForm'
 import LoginForm from './components/LoginForm'
@@ -18,6 +19,7 @@ class App extends Component {
         password: ''
       },
       registerForm: {
+        name: '',
         username: '',
         password: ''
       },
@@ -77,7 +79,13 @@ class App extends Component {
 
   async handleRegister() {
     await registerUser(this.state.registerForm);
-    this.handleLogin(this.state.registerForm);
+    const token = await loginUser(this.state.registerForm)
+    const userData = decode(token.token);
+    this.setState({
+      currentUser: userData
+    })
+    localStorage.setItem("jwt", token.token)
+    this.props.history.push(`/users/${userData.id}/edit`)
   }
 
   async handleLogin(form) {
@@ -87,6 +95,8 @@ class App extends Component {
       currentUser: userData
     })
     localStorage.setItem("jwt", token.token)
+    debugger
+    this.props.history.push(`/users/${userData.id}`)
   }
 
   logOut() {
@@ -112,7 +122,7 @@ class App extends Component {
   }
 
   async updateRatings(rating) {
-    
+
   }
 
   render() {
@@ -161,4 +171,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App)

@@ -1,18 +1,20 @@
 import React, { Component } from 'react'
-import { Link, Redirect, withRouter } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import { withRouter } from 'react-router'
 import PieChart from 'react-minimal-pie-chart';
 
 class UserProfile extends Component {
+
 
   componentDidMount() {
     this.props.getUserRatings(this.props.match.params.id)
   }
 
   render() {
-    if (!this.props.currentUser) {
-      return <Redirect to={`/users/${this.props.match.params.id}/edit`}></Redirect>
-    }
     const { currentUser } = this.props
+    // if (!currentUser.ratings) {
+    //   return <Redirect to={`/users/${this.props.match.params.id}/edit`}></Redirect>
+    // }
     return (
       <div>
         {currentUser && 
@@ -24,16 +26,16 @@ class UserProfile extends Component {
 
               <button 
                 className="userprofile-logout" 
-                onSubmit={() => {
+                onClick={() => {
                     this.props.logOut()
                     this.props.history.push('/')
                 }}
                 >logout</button>
             </div>
 
-              <h2 className="userprofile-welcome">Welcome, {currentUser.name}.</h2>
-              <h3 className="userprofile-h3">Here are your metrics for today.</h3>
-              <p className="userprofile-p">You're doing pretty well on [] and [],<br/> but could use some work with [] and [].</p>
+              <h2 className="userprofile-welcome">welcome, {currentUser.username}.</h2>
+              <h3 className="userprofile-h3">here are your metrics for today.</h3>
+              <p className="userprofile-p">you're doing pretty well on [] and [],<br/> but could use some work with [] and [].</p>
 
             <div className="userprofile-data">
 
