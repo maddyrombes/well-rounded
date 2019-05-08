@@ -1,4 +1,4 @@
-const baseUrl = "https://mighty-springs-48129.herokuapp.com/"
+const baseUrl = "https://evening-journey-12406.herokuapp.com/"
 
 export const showUserProfile = (id) => {
   return fetch(`${baseUrl}/users/${id}`)
