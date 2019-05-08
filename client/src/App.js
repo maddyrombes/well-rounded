@@ -123,6 +123,8 @@ class App extends Component {
   }
 
   async updateRatings(rating) {
+    
+
     putUserRatings(rating)
   }
 
