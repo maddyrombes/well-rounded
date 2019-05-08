@@ -51,9 +51,15 @@ button {
     margin-left: 15px;
 }
 
-.signup-form {
-    margin-left: 60%;
+.signup-div {
+    display: flex;
+    flex-direction: column;
+    margin-left: 30%;
     margin-top: 20%;
+}
+
+.signup-form {
+    display: flex;
 }
 
 .userprofile-header {

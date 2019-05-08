@@ -7,9 +7,10 @@ class RegisterForm extends Component {
     const { registerForm, handleChange, handleSubmit } = this.props
 
   return (
-    <div className="signup-form">
+    <div className="signup-div">
       <h3>sign up</h3>
-      <form onSubmit={(e) => {
+      <form 
+      onSubmit={(e) => {
         e.preventDefault();
         handleSubmit();
       }}>
