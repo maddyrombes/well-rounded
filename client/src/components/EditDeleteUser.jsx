@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { withRouter } from 'react-router'
 
 class EditDeleteUser extends Component {
   render() {
@@ -9,7 +10,8 @@ class EditDeleteUser extends Component {
             className="delete-btn"
             onClick={(e) => {
                 e.preventDefault()
-                this.props.deleteUser(this.props.currentUser.id)
+                this.props.deleteUser(this.props.match.params.id)
+                this.props.history.push(`/`)
             }}
         >DELETE ACCOUNT</button>
       </div>
@@ -17,4 +19,4 @@ class EditDeleteUser extends Component {
   }
 }
 
-export default EditDeleteUser
+export default withRouter(EditDeleteUser)

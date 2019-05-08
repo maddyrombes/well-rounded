@@ -87,7 +87,7 @@ class App extends Component {
       currentUser: userData
     })
     localStorage.setItem("jwt", token.token)
-    this.props.history.push(`/users/${userData.id}/edit`)
+    this.props.history.push(`/users/${userData.id}/edit_ratings`)
   }
 
   async handleLogin(form) {
@@ -131,6 +131,7 @@ class App extends Component {
   async deleteUser(id) {
     await destroyUser(id)
     this.setState({ currentUser: null })
+    localStorage.removeItem("jwt");
   }
 
   render() {
@@ -174,7 +175,7 @@ class App extends Component {
               updateRatings={this.updateRatings}
             />
           )} />
-          <Route exact path="/users/:id/edit_profile" render={(props) => (
+          <Route exact path="/users/:id/delete" render={(props) => (
             <EditDeleteUser 
               {...props}
               currentUser={this.state.currentUser}

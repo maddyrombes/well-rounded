@@ -19,7 +19,7 @@ class EditRatings extends Component {
                 className="edit-delete-btn"
                 onClick={(e) => {
                     e.preventDefault()
-                    this.props.history.push(`/users/${this.props.currentUser.id}/edit_profile`)
+                    this.props.history.push(`/users/${this.props.currentUser.id}/delete`)
                 }}
                 >Edit / Delete Profile</button>
         </div>

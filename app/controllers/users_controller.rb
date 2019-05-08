@@ -39,8 +39,11 @@ class UsersController < ApplicationController
 
     # DESTROY
 
-    def DESTROY
-        @user.destroy
+    def destroy
+        @user = User.find(params[:id])
+        if @user.present?
+            @user.destroy
+        end
     end
 
     private
