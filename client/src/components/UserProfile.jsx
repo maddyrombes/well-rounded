@@ -17,7 +17,11 @@ class UserProfile extends Component {
         {currentUser &&
           <>
             <div className="userprofile-header">
-              <h1 className="userprofile-logo">well rounded</h1>
+            
+              <div className="userprofile-logo-div">
+                <button className="logo"></button>
+                <h1 className="userprofile-logo">well rounded</h1>
+              </div>
 
               <Link to={`/users/${this.props.match.params.id}/edit_ratings`} className="userprofile-edit-btn">EDIT YOUR METRICS</Link>
 
@@ -28,6 +32,7 @@ class UserProfile extends Component {
                   this.props.history.push('/')
                 }}
               >logout</button>
+
             </div>
 
             <h2 className="userprofile-welcome">welcome, {currentUser.username}.</h2>

@@ -3,6 +3,7 @@
 body {
     font-family: 'Sarabun', sans-serif;
     letter-spacing: 1px;
+    background-color: #f5fced;
 }
 
 .logo-div {
@@ -35,8 +36,10 @@ input {
 .loginform-header {
     display: flex;
     justify-content: space-between;
-    margin: 20px 50px 20px 50px;
-    border-bottom: 1px solid black;
+    padding: 20px 50px 10px 50px;
+    background-color: white;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .login {
@@ -81,16 +84,20 @@ button {
 
 .userprofile-header {
     display: flex;
-    border-bottom: 1px solid black;
+    justify-content: space-between;
+    background-color: white;
 }
 
 .userprofile-logo {
-    margin-top: 20px;
-    margin-left: 50px;
-    width: 100%;
+    margin-top: 5px;
     font-family: 'Dosis', sans-serif;
     font-size: 40px;
     letter-spacing: 4px;
+}
+
+.userprofile-logo-div {
+    padding: 20px 0 10px 50px;
+    display: flex;
 }
 
 .userprofile-logout {
@@ -115,7 +122,7 @@ button {
     float: right;
     margin: 25px 50px 20px 0;
     width: 190px;
-    height: 45px;
+    height: 35px;
     text-align: center;
     text-decoration: none;
     color: black;
@@ -124,7 +131,7 @@ button {
     font-family: 'Fira Sans', sans-serif;
     font-size: 16px;
     letter-spacing: 1px;
-    padding-top: 5px;
+    padding-top: 15px;
 }
 
 .userprofile-data {
