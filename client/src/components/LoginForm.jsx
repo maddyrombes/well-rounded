@@ -2,10 +2,7 @@ import React, {Component} from 'react';
 import { withRouter } from 'react-router'
 
 class LoginForm extends Component {
-  componentDidMount() {
-    
-  }
-  
+
   render() {
     const { loginForm, handleChange, handleSubmit } = this.props;
 
@@ -13,8 +10,8 @@ class LoginForm extends Component {
     <div className="loginform-header">
       <h1 className="loginform-header-logo">well rounded</h1>
       <form className="login" onSubmit={(e) => {
-        e.preventDefault();
-        handleSubmit(loginForm);
+        e.preventDefault()
+        handleSubmit(loginForm)
       }}>
         <label>username</label>
         <input 

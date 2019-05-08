@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     before_action :set_user, only: :show
-    # before_action :authenticate_user
+    # before_action :authorize_request, except: :create
 
     # READ
 
@@ -22,20 +22,20 @@ class UsersController < ApplicationController
         @metrics.each do |metric|
             Rating.create metric:metric, user:@user, rating:5
         end
-        render json: @user, status: :created, location: @user, include: :ratings
+        render json: @user, status: :created, location: @user
     rescue StandardError => e
         render json: { message: e.to_s }, status: :unprocessable_entity
     end
 
     # UPDATE
 
-    def update
-        if @user.update(user_params)
-          render json: @user
-        else
-          render json: @user.errors, status: :unprocessable_entity
-        end
-    end
+    # def update
+    #     if current_user.update_attributes(edit_ratings_params)
+    #       render json: @user
+    #     else
+    #       render json: @user.errors, status: :unprocessable_entity
+    #     end
+    # end
 
     # DESTROY
 
@@ -54,5 +54,9 @@ class UsersController < ApplicationController
 
     def user_params
         params.require(:user).permit(:username, :password)
+    end
+
+    def edit_ratings_params
+        params.permit(:user)
     end
 end

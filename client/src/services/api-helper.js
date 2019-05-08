@@ -1,7 +1,13 @@
-const baseUrl = "https://evening-journey-12406.herokuapp.com/"
+// const baseUrl = "https://evening-journey-12406.herokuapp.com/"
+const baseUrl = "http://localhost:3000"
 
 export const showUserProfile = (id) => {
-  return fetch(`${baseUrl}/users/${id}`)
+  const opts = {
+    headers: {
+      'Authorization': `Bearer ${localStorage.getItem('jwt')}`
+    }
+  }
+  return fetch(`${baseUrl}/users/${id}`, opts)
     .then(resp => resp.json())
     .catch(e => e)
 }
@@ -32,16 +38,18 @@ export const registerUser = (registerData) => {
     .catch(e => e)
 }
 
-export const putUserRatings = (id, item) => {
+export const putUserRatings = (user_id, id, item) => {
   const opts = {
     method: 'PUT',
-    body: JSON.stringify(item),
+    body: JSON.stringify({rating: item} ),
     headers: {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${localStorage.getItem('jwt')}`
     }
   }
-  return fetch(`${baseUrl}/users/${id}`, opts)
+  console.log(opts);
+  
+  return fetch(`${baseUrl}/users/${user_id}/ratings/${id}`, opts)
     .then(resp => resp.json())
     .catch(e => e)
 }

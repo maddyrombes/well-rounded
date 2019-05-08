@@ -24,14 +24,14 @@ class App extends Component {
         username: '',
         password: ''
       },
-      f_rating: '',
+      ratingForm: {f_rating: '',
       ll_rating: '',
       ff_rating: '',
       w_rating: '',
       c_rating: '',
       e_rating: '',
       he_rating: '',
-      ss_rating: ''
+      ss_rating: ''}
       
     }
     this.handleLoginAuthChange = this.handleLoginAuthChange.bind(this)
@@ -45,13 +45,13 @@ class App extends Component {
     this.deleteUser = this.deleteUser.bind(this)
   }
 
-  // componentDidMount() {
-  //   const token = localStorage.getItem('jwt')
-  //   if (token) {
-  //     const decodedToken = decode(token)
-  //     this.setState({ currentUser: decodedToken })
-  //   }
-  // }
+  componentDidMount() {
+    const token = localStorage.getItem('jwt')
+    if (token) {
+      const decodedToken = decode(token)
+      this.setState({ currentUser: decodedToken })
+    }
+  }
 
   //AUTH
 
@@ -117,15 +117,27 @@ class App extends Component {
   //EDIT
 
   handleUpdateForm(e) {
-    this.setState({
-      [e.target.name]: e.target.value
-    })
+    const {name, value} = e.target;
+    this.setState(prevState=>({
+      ratingForm: {...prevState.ratingForm, 
+        [name]: value
+      }
+    }))
   }
 
-  async updateRatings(rating) {
-    
-
-    putUserRatings(rating)
+  updateRatings() {
+    const ratingKeys = Object.keys(this.state.ratingForm)
+    ratingKeys.forEach(async (rating, index) => {
+      if (this.state.ratingForm[rating].length > 0) {
+        const newRating = await putUserRatings(this.state.currentUser.id, this.state.currentUser.ratings[index].id, this.state.ratingForm[rating] );
+        this.setState(prevState=>({
+          currentUser: {
+            ...prevState.currentUser,
+            ratings: prevState.currentUser.ratings.map(rating => (rating.id === newRating.id ? newRating : rating))
+          }
+        }))
+      }
+    })
   }
 
   //DELETE USER
@@ -137,6 +149,8 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.state.currentUser);
+    
     return (
       <div className="App">
         <header>
@@ -160,7 +174,7 @@ class App extends Component {
             />
           )} />
           <Route exact path="/users/:id" render={(props) => (
-            <UserProfile 
+            <UserProfile
               {...props}
               currentUser={this.state.currentUser}
               getUserRatings={this.getUserRatings}
@@ -172,9 +186,9 @@ class App extends Component {
               {...props}
               currentUser={this.state.currentUser}
               getUserRatings={this.getUserRatings}
-              formData={this.state.formData}
               handleUpdateForm={this.handleUpdateForm}
               updateRatings={this.updateRatings}
+              ratingForm={this.state.ratingForm}
             />
           )} />
           <Route exact path="/users/:id/delete" render={(props) => (

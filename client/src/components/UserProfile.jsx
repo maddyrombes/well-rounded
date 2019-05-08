@@ -17,24 +17,24 @@ class UserProfile extends Component {
     // }
     return (
       <div>
-        {currentUser && 
+        {currentUser &&
           <>
             <div className="userprofile-header">
-              <h1 className="userprofile-logo">Well Rounded</h1>
+              <h1 className="userprofile-logo">well rounded</h1>
 
               <Link to={`/users/${this.props.match.params.id}/edit_ratings`} className="userprofile-edit-btn">EDIT YOUR METRICS</Link>
 
-              <button 
-                className="userprofile-logout" 
+              <button
+                className="userprofile-logout"
                 onClick={() => {
-                    this.props.logOut()
-                    this.props.history.push('/')
+                  this.props.logOut()
+                  this.props.history.push('/')
                 }}
-                >logout</button>
+              >logout</button>
             </div>
 
-              <h2 className="userprofile-welcome">welcome, {currentUser.username}.</h2>
-              <h3 className="userprofile-h3">here are your metrics for today.</h3>
+            <h2 className="userprofile-welcome">welcome, {currentUser.username}.</h2>
+            <h3 className="userprofile-h3">here are your metrics for today.</h3>
 
             <div className="userprofile-data">
 
@@ -74,7 +74,7 @@ class UserProfile extends Component {
               </div>
 
               <div className="userprofile-ratings">
-                <PieChart 
+                <PieChart
                   className="piechart"
                   lineWidth='50'
                   radius={42}

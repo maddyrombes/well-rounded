@@ -7,7 +7,7 @@ class EditDeleteUser extends Component {
     return (
       <div>
         <div className="delete-header">
-          <h1 className="delete-logo">Well Rounded</h1>
+          <h1 className="delete-logo">well rounded</h1>
           <Link to={`/users/${this.props.match.params.id}/edit_ratings`} className="delete-back-btn">GO BACK</Link>
         </div>
         <div className="delete">
