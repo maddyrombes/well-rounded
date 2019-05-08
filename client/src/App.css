@@ -1,10 +1,21 @@
 @import url('https://fonts.googleapis.com/css?family=Sarabun|Fira+Sans|Dosis:800');
 
-/* Sarina */
-
 body {
     font-family: 'Sarabun', sans-serif;
     letter-spacing: 1px;
+}
+
+.logo-div {
+    display: flex;
+}
+
+.logo {
+    background-color: #a4cc2e;
+    border: none;
+    border-radius: 50px;
+    width: 70px;
+    height: 70px;
+    margin-right: 15px;
 }
 
 input {
@@ -35,12 +46,18 @@ input {
 
 .login-username-form, .login-password-form {
     height: 15px;
+    margin: 0 10px;
+}
+
+.signup-username-form, .signup-password-form {
+    height: 15px;
+    margin: 0 10px;
 }
 
 button {
     width: 80px;
     height: 40px;
-    background-color: white;
+    background-color: #a4cc2e;
     border-radius: 50px;
     font-family: 'Fira Sans', sans-serif;
     text-transform: uppercase;
@@ -55,7 +72,7 @@ button {
     display: flex;
     flex-direction: column;
     margin-left: 30%;
-    margin-top: 20%;
+    margin-top: 200px;
 }
 
 .signup-form {

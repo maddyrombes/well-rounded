@@ -12,9 +12,6 @@ class UserProfile extends Component {
 
   render() {
     const { currentUser } = this.props
-    // if (!currentUser.ratings) {
-    //   return <Redirect to={`/users/${this.props.match.params.id}/edit_ratings`}></Redirect>
-    // }
     return (
       <div>
         {currentUser &&

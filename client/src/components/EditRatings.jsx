@@ -21,7 +21,7 @@ class EditRatings extends Component {
                     e.preventDefault()
                     this.props.history.push(`/users/${this.props.currentUser.id}/delete`)
                 }}
-                >Edit / Delete Profile</button>
+                >Delete Account</button>
         </div>
         <form className="edit-form-div" onSubmit={(e) => {
             e.preventDefault()
