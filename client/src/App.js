@@ -95,7 +95,6 @@ class App extends Component {
       currentUser: userData
     })
     localStorage.setItem("jwt", token.token)
-    debugger
     this.props.history.push(`/users/${userData.id}`)
   }
 
@@ -122,7 +121,7 @@ class App extends Component {
   }
 
   async updateRatings(rating) {
-
+    putUserRatings(rating)
   }
 
   render() {

@@ -1,13 +1,10 @@
 import React, {Component} from 'react';
-import { withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router'
 
 class RegisterForm extends Component {
-  componentDidMount() {
-
-  }
   
   render() {
-    const { registerForm, handleChange, handleSubmit, currentUser } = this.props
+    const { registerForm, handleChange, handleSubmit } = this.props
 
   return (
     <div className="signup-form">
@@ -16,12 +13,18 @@ class RegisterForm extends Component {
         e.preventDefault();
         handleSubmit();
       }}>
-        <label>name</label>
-        <input name="name" type="text" value={registerForm.name} onChange={handleChange}/>
         <label>username</label>
-        <input name="username" type="text" value={registerForm.username} onChange={handleChange}/>
+        <input 
+          name="username" 
+          type="text" 
+          value={registerForm.username} 
+          onChange={handleChange}/>
         <label>password</label>
-        <input name="password" type="password" value= {registerForm.password} onChange={handleChange} />
+        <input 
+          name="password" 
+          type="password" 
+          value= {registerForm.password} 
+          onChange={handleChange} />
         <button>Submit</button>
       </form>
     </div>

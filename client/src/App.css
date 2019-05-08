@@ -1,12 +1,24 @@
-@import url('https://fonts.googleapis.com/css?family=Lora|Fira+Sans');
+@import url('https://fonts.googleapis.com/css?family=Sarabun|Fira+Sans|Dosis:800');
+
+/* Sarina */
 
 body {
-    font-family: 'Lora', serif;
+    font-family: 'Sarabun', sans-serif;
     letter-spacing: 1px;
+}
+
+input {
+    border-radius: 20px;
+    box-sizing: border-box;
+    padding: 12px 20px;
+    width: 120px;
 }
 
 .loginform-header-logo {
     margin-top: 5px;
+    font-family: 'Dosis', sans-serif;
+    font-size: 40px;
+    letter-spacing: 4px;
 }
 
 .loginform-header {
@@ -18,16 +30,16 @@ body {
 
 .login {
     display: flex;
+    margin-top: 20px;
 }
 
 .login-username-form, .login-password-form {
     height: 15px;
-    margin: 15px 10px 10px 0;
 }
 
 button {
-    width: 70px;
-    height: 30px;
+    width: 80px;
+    height: 40px;
     background-color: white;
     border-radius: 50px;
     font-family: 'Fira Sans', sans-serif;
@@ -36,7 +48,7 @@ button {
 }
 
 .login-btn {
-    margin-top: 10px;
+    margin-left: 15px;
 }
 
 .signup-form {
@@ -99,7 +111,6 @@ button {
 }
 
 .userprofile-key {
-    margin-left: 30px;
     margin-top: 100px;
     position: fixed;
 }

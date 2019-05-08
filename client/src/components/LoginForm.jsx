@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router'
 
 class LoginForm extends Component {
   componentDidMount() {
@@ -7,16 +7,16 @@ class LoginForm extends Component {
   }
   
   render() {
-    const { loginForm, handleChange, handleSubmit, currentUser } = this.props;
+    const { loginForm, handleChange, handleSubmit } = this.props;
 
   return (
     <div className="loginform-header">
-      <h1 className="loginform-header-logo">Well Rounded</h1>
+      <h1 className="loginform-header-logo">well rounded</h1>
       <form className="login" onSubmit={(e) => {
         e.preventDefault();
         handleSubmit(loginForm);
       }}>
-        <p>username</p>
+        <label>username</label>
         <input 
           className="login-username-form" 
           name="username" 
@@ -24,7 +24,7 @@ class LoginForm extends Component {
           value={loginForm.username} 
           onChange={handleChange}
           />
-        <p>password</p>
+        <label>password</label>
         <input className="login-password-form" name="password" type="password" value= {loginForm.password} onChange={handleChange} />
         <button className="login-btn">Submit</button>
       </form>

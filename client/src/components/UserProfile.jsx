@@ -35,7 +35,6 @@ class UserProfile extends Component {
 
               <h2 className="userprofile-welcome">welcome, {currentUser.username}.</h2>
               <h3 className="userprofile-h3">here are your metrics for today.</h3>
-              <p className="userprofile-p">you're doing pretty well on [] and [],<br/> but could use some work with [] and [].</p>
 
             <div className="userprofile-data">
 
