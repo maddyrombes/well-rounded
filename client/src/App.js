@@ -8,7 +8,7 @@ import LoginForm from './components/LoginForm'
 import EditRatings from './components/EditRatings'
 import { showUserProfile, loginUser, registerUser, putUserRatings, destroyUser } from './services/api-helper'
 import UserProfile from './components/UserProfile'
-import EditDeleteUser from './components/EditDeleteUser'
+import DeleteUser from './components/DeleteUser'
 
 class App extends Component {
   constructor(props) {
@@ -176,7 +176,7 @@ class App extends Component {
             />
           )} />
           <Route exact path="/users/:id/delete" render={(props) => (
-            <EditDeleteUser 
+            <DeleteUser 
               {...props}
               currentUser={this.state.currentUser}
               getUserRatings={this.getUserRatings}

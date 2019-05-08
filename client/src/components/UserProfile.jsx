@@ -22,7 +22,7 @@ class UserProfile extends Component {
             <div className="userprofile-header">
               <h1 className="userprofile-logo">Well Rounded</h1>
 
-              <Link to={`/users/${this.props.match.params.id}/edit_ratings`} className="userprofile-edit-btn">Edit your metrics</Link>
+              <Link to={`/users/${this.props.match.params.id}/edit_ratings`} className="userprofile-edit-btn">EDIT YOUR METRICS</Link>
 
               <button 
                 className="userprofile-logout" 
