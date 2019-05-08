@@ -192,3 +192,9 @@ button {
     width: 110px;
     margin-left: 140%;
 }
+
+.edit-delete-btn {
+    margin-top: 20px;
+    margin-right: 30px;
+    width: 200px;
+}

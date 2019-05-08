@@ -6,8 +6,9 @@ import decode from 'jwt-decode'
 import RegisterForm from './components/RegisterForm'
 import LoginForm from './components/LoginForm'
 import EditRatings from './components/EditRatings'
-import { showUserProfile, loginUser, registerUser, putUserRatings } from './services/api-helper'
+import { showUserProfile, loginUser, registerUser, putUserRatings, destroyUser } from './services/api-helper'
 import UserProfile from './components/UserProfile'
+import EditDeleteUser from './components/EditDeleteUser'
 
 class App extends Component {
   constructor(props) {
@@ -41,6 +42,7 @@ class App extends Component {
     this.logOut = this.logOut.bind(this)
     this.handleUpdateForm = this.handleUpdateForm.bind(this)
     this.updateRatings = this.updateRatings.bind(this)
+    this.deleteUser = this.deleteUser.bind(this)
   }
 
   // componentDidMount() {
@@ -124,6 +126,13 @@ class App extends Component {
     putUserRatings(rating)
   }
 
+  //DELETE USER
+
+  async deleteUser(id) {
+    await destroyUser(id)
+    this.setState({ currentUser: null })
+  }
+
   render() {
     return (
       <div className="App">
@@ -155,7 +164,7 @@ class App extends Component {
               logOut={this.logOut}
             />
           )} />
-          <Route exact path="/users/:id/edit" render={(props) => (
+          <Route exact path="/users/:id/edit_ratings" render={(props) => (
             <EditRatings 
               {...props}
               currentUser={this.state.currentUser}
@@ -163,6 +172,14 @@ class App extends Component {
               formData={this.state.formData}
               handleUpdateForm={this.handleUpdateForm}
               updateRatings={this.updateRatings}
+            />
+          )} />
+          <Route exact path="/users/:id/edit_profile" render={(props) => (
+            <EditDeleteUser 
+              {...props}
+              currentUser={this.state.currentUser}
+              getUserRatings={this.getUserRatings}
+              deleteUser={this.deleteUser}
             />
           )} />
       </div>

@@ -5,7 +5,7 @@ class EditRatings extends Component {
 
     componentDidMount() {
         this.props.getUserRatings(this.props.match.params.id)
-      }
+    }
 
   render() {
     const { currentUser } = this.props
@@ -15,6 +15,13 @@ class EditRatings extends Component {
         <>
         <div className="edit-header">
             <h1 className="edit-logo">Well Rounded</h1>
+            <button 
+                className="edit-delete-btn"
+                onClick={(e) => {
+                    e.preventDefault()
+                    this.props.history.push(`/users/${this.props.currentUser.id}/edit_profile`)
+                }}
+                >Edit / Delete Profile</button>
         </div>
         <form className="edit-form-div" onSubmit={(e) => {
             e.preventDefault()
