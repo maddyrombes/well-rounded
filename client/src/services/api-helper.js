@@ -1,4 +1,4 @@
-const baseUrl = "http://localhost:3000"
+const baseUrl = "https://mighty-springs-48129.herokuapp.com/"
 
 export const showUserProfile = (id) => {
   return fetch(`${baseUrl}/users/${id}`)
