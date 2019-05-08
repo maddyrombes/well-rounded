@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
+import { withRouter } from 'react-router'
 
-export default class EditRatings extends Component {
+class EditRatings extends Component {
 
     componentDidMount() {
         this.props.getUserRatings(this.props.match.params.id)
-      }
+    }
 
   render() {
     const { currentUser } = this.props
@@ -14,9 +15,22 @@ export default class EditRatings extends Component {
         <>
         <div className="edit-header">
             <h1 className="edit-logo">Well Rounded</h1>
+            <button 
+                className="edit-delete-btn"
+                onClick={(e) => {
+                    e.preventDefault()
+                    this.props.history.push(`/users/${this.props.currentUser.id}/delete`)
+                }}
+                >Edit / Delete Profile</button>
         </div>
-        <form className="edit-form-div">
-            <p>Finance</p>
+        <form className="edit-form-div" onSubmit={(e) => {
+            e.preventDefault()
+            this.props.updateRatings()
+            this.props.history.push(`/users/${this.props.currentUser.id}`)
+        }
+        }>
+            <div>
+            <label>Finance</label>
             <input 
                 className="editform"
                 name="f_rating" 
@@ -26,7 +40,9 @@ export default class EditRatings extends Component {
                 placeholder={currentUser.ratings[0].rating} 
                 value={this.props.f_rating}
                 onChange={this.props.handleUpdateForm} />
-            <p>Love Life</p>
+            </div>
+            <div>
+            <label>Love Life</label>
             <input 
                 className="editform"
                 name="ll_rating" 
@@ -36,7 +52,9 @@ export default class EditRatings extends Component {
                 placeholder={currentUser.ratings[1].rating}
                 value={this.props.ll_rating}
                 onChange={this.props.handleUpdateForm} />
-            <p>Friends and Family</p>
+            </div>
+            <div>
+            <label>Friends and Family</label>
             <input 
                 className="editform"
                 name="ff_rating" 
@@ -46,7 +64,9 @@ export default class EditRatings extends Component {
                 placeholder={currentUser.ratings[2].rating}
                 value={this.props.ff_rating}
                 onChange={this.props.handleUpdateForm} />
-            <p>Work</p>
+            </div>
+            <div>
+            <label>Work</label>
             <input 
                 className="editform"
                 name="w_rating" 
@@ -56,7 +76,9 @@ export default class EditRatings extends Component {
                 placeholder={currentUser.ratings[3].rating}
                 value={this.props.w_rating}
                 onChange={this.props.handleUpdateForm} />
-            <p>Creativity</p>
+            </div>
+            <div>
+            <label>Creativity</label>
             <input 
                 className="editform"
                 name="c_rating" 
@@ -66,7 +88,9 @@ export default class EditRatings extends Component {
                 placeholder={currentUser.ratings[4].rating}
                 value={this.props.c_rating}
                 onChange={this.props.handleUpdateForm} />
-            <p>Exercise</p>
+            </div>
+            <div>
+            <label>Exercise</label>
             <input 
                 className="editform"
                 name="e_rating" 
@@ -76,7 +100,9 @@ export default class EditRatings extends Component {
                 placeholder={currentUser.ratings[5].rating}
                 value={this.props.e_rating}
                 onChange={this.props.handleUpdateForm} />
-            <p>Healthy Eating</p>
+            </div>
+            <div>
+            <label>Healthy Eating</label>
             <input
                 className="editform" 
                 name="he_rating" 
@@ -86,7 +112,9 @@ export default class EditRatings extends Component {
                 placeholder={currentUser.ratings[6].rating}
                 value={this.props.he_rating}
                 onChange={this.props.handleUpdateForm} />
-            <p>Spirituality / Self</p>
+            </div>
+            <div>
+            <label>Spirituality / Self</label>
             <input 
                 className="editform"
                 name="ss_rating" 
@@ -96,7 +124,8 @@ export default class EditRatings extends Component {
                 placeholder={currentUser.ratings[7].rating}
                 value={this.props.ss_rating}
                 onChange={this.props.handleUpdateForm} />
-            <button className="edit-submit-btn" onSubmit={this.props.updateRatings}>Save and go to profile</button>
+            </div>
+            <button className="edit-submit-btn">Save and go to profile</button>
         </form>
         </>
         }
@@ -104,3 +133,5 @@ export default class EditRatings extends Component {
     )
   }
 }
+
+export default withRouter(EditRatings)

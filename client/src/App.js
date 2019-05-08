@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 import './App.css'
 import { Route } from 'react-router-dom'
+import { withRouter } from 'react-router'
 import decode from 'jwt-decode'
 import RegisterForm from './components/RegisterForm'
 import LoginForm from './components/LoginForm'
 import EditRatings from './components/EditRatings'
-import { showUserProfile, loginUser, registerUser, putUserRatings } from './services/api-helper'
+import { showUserProfile, loginUser, registerUser, putUserRatings, destroyUser } from './services/api-helper'
 import UserProfile from './components/UserProfile'
+import DeleteUser from './components/DeleteUser'
 
 class App extends Component {
   constructor(props) {
@@ -18,6 +20,7 @@ class App extends Component {
         password: ''
       },
       registerForm: {
+        name: '',
         username: '',
         password: ''
       },
@@ -39,6 +42,7 @@ class App extends Component {
     this.logOut = this.logOut.bind(this)
     this.handleUpdateForm = this.handleUpdateForm.bind(this)
     this.updateRatings = this.updateRatings.bind(this)
+    this.deleteUser = this.deleteUser.bind(this)
   }
 
   // componentDidMount() {
@@ -77,7 +81,13 @@ class App extends Component {
 
   async handleRegister() {
     await registerUser(this.state.registerForm);
-    this.handleLogin(this.state.registerForm);
+    const token = await loginUser(this.state.registerForm)
+    const userData = decode(token.token);
+    this.setState({
+      currentUser: userData
+    })
+    localStorage.setItem("jwt", token.token)
+    this.props.history.push(`/users/${userData.id}/edit_ratings`)
   }
 
   async handleLogin(form) {
@@ -87,6 +97,7 @@ class App extends Component {
       currentUser: userData
     })
     localStorage.setItem("jwt", token.token)
+    this.props.history.push(`/users/${userData.id}`)
   }
 
   logOut() {
@@ -112,10 +123,17 @@ class App extends Component {
   }
 
   async updateRatings(rating) {
-    const updatedRating = await putUserRatings(this.state.currentUser.id, this.state.formData)
-    this.setState(prevState => ({
-      rating: prevState.rating.map(e => e.id === rating.id ? updatedRating : e) 
-    }))
+    
+
+    putUserRatings(rating)
+  }
+
+  //DELETE USER
+
+  async deleteUser(id) {
+    await destroyUser(id)
+    this.setState({ currentUser: null })
+    localStorage.removeItem("jwt");
   }
 
   render() {
@@ -128,14 +146,17 @@ class App extends Component {
               handleSubmit={this.handleLogin}
               handleChange={this.handleLoginAuthChange}
               loginForm={this.state.loginForm}
+              currentUser={this.state.currentUser}
             />
           )} />
         </header>
-          <Route exact path="/" render={() => (
+          <Route exact path="/" render={(props) => (
             <RegisterForm
+              {...props}
               handleSubmit={this.handleRegister}
               handleChange={this.handleRegisterAuthChange}
               registerForm={this.state.registerForm}
+              currentUser={this.state.currentUser}
             />
           )} />
           <Route exact path="/users/:id" render={(props) => (
@@ -146,7 +167,7 @@ class App extends Component {
               logOut={this.logOut}
             />
           )} />
-          <Route exact path="/users/:id/edit" render={(props) => (
+          <Route exact path="/users/:id/edit_ratings" render={(props) => (
             <EditRatings 
               {...props}
               currentUser={this.state.currentUser}
@@ -156,9 +177,17 @@ class App extends Component {
               updateRatings={this.updateRatings}
             />
           )} />
+          <Route exact path="/users/:id/delete" render={(props) => (
+            <DeleteUser 
+              {...props}
+              currentUser={this.state.currentUser}
+              getUserRatings={this.getUserRatings}
+              deleteUser={this.deleteUser}
+            />
+          )} />
       </div>
     );
   }
 }
 
-export default App;
+export default withRouter(App)

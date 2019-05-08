@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import { withRouter } from 'react-router'
 import PieChart from 'react-minimal-pie-chart';
 
-export default class UserProfile extends Component {
+class UserProfile extends Component {
+
 
   componentDidMount() {
     this.props.getUserRatings(this.props.match.params.id)
@@ -10,6 +12,9 @@ export default class UserProfile extends Component {
 
   render() {
     const { currentUser } = this.props
+    // if (!currentUser.ratings) {
+    //   return <Redirect to={`/users/${this.props.match.params.id}/edit_ratings`}></Redirect>
+    // }
     return (
       <div>
         {currentUser && 
@@ -17,14 +22,19 @@ export default class UserProfile extends Component {
             <div className="userprofile-header">
               <h1 className="userprofile-logo">Well Rounded</h1>
 
-              <Link to={`/users/${this.props.match.params.id}/edit`} className="userprofile-edit-btn">Edit your metrics</Link>
+              <Link to={`/users/${this.props.match.params.id}/edit_ratings`} className="userprofile-edit-btn">EDIT YOUR METRICS</Link>
 
-              <p className="userprofile-logout" onClick={this.props.logOut}>logout</p>
+              <button 
+                className="userprofile-logout" 
+                onClick={() => {
+                    this.props.logOut()
+                    this.props.history.push('/')
+                }}
+                >logout</button>
             </div>
 
-              <h2 className="userprofile-welcome">Welcome, {currentUser.name}.</h2>
-              <h3 className="userprofile-h3">Here are your metrics for today.</h3>
-              <p className="userprofile-p">You're doing pretty well on [] and [],<br/> but could use some work with [] and [].</p>
+              <h2 className="userprofile-welcome">welcome, {currentUser.username}.</h2>
+              <h3 className="userprofile-h3">here are your metrics for today.</h3>
 
             <div className="userprofile-data">
 
@@ -87,3 +97,5 @@ export default class UserProfile extends Component {
     )
   }
 }
+
+export default withRouter(UserProfile)

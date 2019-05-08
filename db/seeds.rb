@@ -1,4 +1,4 @@
-User.create!(name: 'Maddy', username: 'mrombes', password: '123')
+User.create!(username: 'mrombes', password: '123')
 
 Metric.create!(name: 'Finance')
 Metric.create!(name: 'Love Life')

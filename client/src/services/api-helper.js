@@ -40,9 +40,19 @@ export const putUserRatings = (id, item) => {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${localStorage.getItem('jwt')}`
     }
-  };
-
+  }
   return fetch(`${baseUrl}/users/${id}`, opts)
     .then(resp => resp.json())
+    .catch(e => e)
+}
+
+export const destroyUser = (id) => {
+  const opts = {
+    method: 'DELETE',
+    headers: {
+      'Authorization': `Bearer ${localStorage.getItem('jwt')}`
+    }
+  }
+  return fetch(`${baseUrl}/users/${id}`, opts)
     .catch(e => e)
 }
