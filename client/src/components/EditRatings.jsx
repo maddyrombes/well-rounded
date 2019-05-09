@@ -10,18 +10,23 @@ class EditRatings extends Component {
   render() {
     const { currentUser } = this.props
     return (
-      <div>
+        <div>
         {currentUser && 
         <>
         <div className="edit-header">
-            <h1 className="edit-logo">well rounded</h1>
+
+            <div className="userprofile-logo-div">
+                <button className="logo"></button>
+                <h1 className="userprofile-logo">well rounded</h1>
+            </div>
+            
             <button 
                 className="edit-delete-btn"
                 onClick={(e) => {
                     e.preventDefault()
                     this.props.history.push(`/users/${this.props.currentUser.id}/delete`)
                 }}
-                >Edit / Delete Profile</button>
+                >Delete Account</button>
         </div>
         <form className="edit-form-div" onSubmit={(e) => {
             e.preventDefault()
@@ -130,6 +135,7 @@ class EditRatings extends Component {
         </>
         }
       </div>
+
     )
   }
 }
