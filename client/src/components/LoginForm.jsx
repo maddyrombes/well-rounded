@@ -8,7 +8,10 @@ class LoginForm extends Component {
 
   return (
     <div className="loginform-header">
-      <h1 className="loginform-header-logo">well rounded</h1>
+      <div className="logo-div">
+        <button className="logo"></button>
+        <h1 className="loginform-header-logo">well rounded</h1>
+      </div>
       <form className="login" onSubmit={(e) => {
         e.preventDefault()
         handleSubmit(loginForm)

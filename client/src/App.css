@@ -1,10 +1,22 @@
 @import url('https://fonts.googleapis.com/css?family=Sarabun|Fira+Sans|Dosis:800');
 
-/* Sarina */
-
 body {
     font-family: 'Sarabun', sans-serif;
     letter-spacing: 1px;
+    background-color: #f5fced;
+}
+
+.logo-div {
+    display: flex;
+}
+
+.logo {
+    background-color: #a4cc2e;
+    border: none;
+    border-radius: 50px;
+    width: 70px;
+    height: 70px;
+    margin-right: 15px;
 }
 
 input {
@@ -24,8 +36,10 @@ input {
 .loginform-header {
     display: flex;
     justify-content: space-between;
-    margin: 20px 50px 20px 50px;
-    border-bottom: 1px solid black;
+    padding: 20px 50px 10px 50px;
+    background-color: white;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .login {
@@ -35,12 +49,18 @@ input {
 
 .login-username-form, .login-password-form {
     height: 15px;
+    margin: 0 10px;
+}
+
+.signup-username-form, .signup-password-form {
+    height: 15px;
+    margin: 0 10px;
 }
 
 button {
     width: 80px;
     height: 40px;
-    background-color: white;
+    background-color: #a4cc2e;
     border-radius: 50px;
     font-family: 'Fira Sans', sans-serif;
     text-transform: uppercase;
@@ -55,7 +75,7 @@ button {
     display: flex;
     flex-direction: column;
     margin-left: 30%;
-    margin-top: 20%;
+    margin-top: 200px;
 }
 
 .signup-form {
@@ -64,16 +84,20 @@ button {
 
 .userprofile-header {
     display: flex;
-    border-bottom: 1px solid black;
+    justify-content: space-between;
+    background-color: white;
 }
 
 .userprofile-logo {
-    margin-top: 20px;
-    margin-left: 50px;
-    width: 100%;
+    margin-top: 5px;
     font-family: 'Dosis', sans-serif;
     font-size: 40px;
     letter-spacing: 4px;
+}
+
+.userprofile-logo-div {
+    padding: 20px 0 10px 50px;
+    display: flex;
 }
 
 .userprofile-logout {
@@ -96,9 +120,9 @@ button {
 
 .userprofile-edit-btn {
     float: right;
-    margin: 25px 50px 20px 0;
+    margin: 25px 25px 20px 0;
     width: 190px;
-    height: 45px;
+    height: 35px;
     text-align: center;
     text-decoration: none;
     color: black;
@@ -107,7 +131,11 @@ button {
     font-family: 'Fira Sans', sans-serif;
     font-size: 16px;
     letter-spacing: 1px;
-    padding-top: 5px;
+    padding-top: 15px;
+}
+
+.userprofile-btns {
+    display: flex;
 }
 
 .userprofile-data {
@@ -172,7 +200,8 @@ button {
 
 .edit-header {
     display: flex;
-    border-bottom: 1px solid black;
+    justify-content: space-between;
+    background-color: white;
 }
 
 .edit-logo {
@@ -204,16 +233,15 @@ button {
 }
 
 .edit-delete-btn {
-    margin-top: 20px;
-    margin-right: 30px;
-    width: 200px;
+    margin-top: 35px;
+    margin-right: 50px;
+    width: 150px;
 }
 
 .delete-header {
     display: flex;
     justify-content: space-between;
-    margin: 20px 50px 20px 50px;
-    border-bottom: 1px solid black;
+    background-color: white;
 }
 
 .delete-logo {
@@ -225,18 +253,18 @@ button {
 
 .delete-back-btn {
     float: right;
-    margin: 20px 50px 20px 0;
+    margin: 35px 50px 20px 0;
     width: 100px;
     height: 25px;
     text-align: center;
     text-decoration: none;
     color: black;
-    border: 1px solid rgba(0,0,0,.3);
     border-radius: 50px;
     font-family: 'Fira Sans', sans-serif;
-    font-size: 16px;
+    font-size: 11px;
     letter-spacing: 1px;
-    padding-top: 5px;
+    padding-top: 13px;
+    background-color: #a4cc2e;
 }
 
 .delete {
@@ -253,7 +281,7 @@ button {
 .delete-btn {
     margin: auto;
     margin-top: 25px;
-    font-size: 15px;
+    font-size: 13px;
     width: 120px;
     height: 50px;
 }
