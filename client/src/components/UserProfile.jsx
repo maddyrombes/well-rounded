@@ -12,25 +12,31 @@ class UserProfile extends Component {
 
   render() {
     const { currentUser } = this.props
-    // if (!currentUser.ratings) {
-    //   return <Redirect to={`/users/${this.props.match.params.id}/edit_ratings`}></Redirect>
-    // }
     return (
       <div>
         {currentUser &&
           <>
             <div className="userprofile-header">
-              <h1 className="userprofile-logo">well rounded</h1>
+            
+              <div className="userprofile-logo-div">
+                <button className="logo"></button>
+                <h1 className="userprofile-logo">well rounded</h1>
+              </div>
 
-              <Link to={`/users/${this.props.match.params.id}/edit_ratings`} className="userprofile-edit-btn">EDIT YOUR METRICS</Link>
+              <div className="userprofile-btns">
 
-              <button
-                className="userprofile-logout"
-                onClick={() => {
-                  this.props.logOut()
-                  this.props.history.push('/')
-                }}
-              >logout</button>
+                <Link to={`/users/${this.props.match.params.id}/edit_ratings`} className="userprofile-edit-btn">EDIT YOUR METRICS</Link>
+
+                <button
+                  className="userprofile-logout"
+                  onClick={() => {
+                    this.props.logOut()
+                    this.props.history.push('/')
+                  }}
+                >logout</button>
+              </div>
+
+
             </div>
 
             <h2 className="userprofile-welcome">welcome, {currentUser.username}.</h2>
