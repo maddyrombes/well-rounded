@@ -106,15 +106,13 @@ button {
 }
 
 .userprofile-welcome {
+    font-size: 45px;
     margin-left: 100px;
-    margin-top: 100px;
+    margin-top: 60px;
 }
 
 .userprofile-h3 {
-    margin-left: 100px;
-}
-
-.userprofile-p {
+    font-size: 25px;
     margin-left: 100px;
 }
 
@@ -152,6 +150,7 @@ button {
 }
 
 .userprofile-key {
+    font-size: 18px;
     margin-top: 100px;
     position: fixed;
 }
@@ -168,34 +167,50 @@ button {
 
 .f-color {
     background: #E38627;
+    margin-right: 7px;
+    margin-top: 1px;
 }
 
 .ll-color {
     background: #E2615C;
+    margin-right: 7px;
+    margin-top: 1px;
 }
 
 .ff-color {
     background: #BC5581;
+    margin-right: 7px;
+    margin-top: 1px;
 }
 
 .w-color {
     background: #81578D;
+    margin-right: 7px;
+    margin-top: 1px;
 }
 
 .c-color {
     background: #48547B;
+    margin-right: 7px;
+    margin-top: 1px;
 }
 
 .e-color {
     background: #2F4858;
+    margin-right: 7px;
+    margin-top: 1px;
 }
 
 .he-color {
     background: #00725F;
+    margin-right: 7px;
+    margin-top: 1px;
 }
 
 .ss-color {
     background: #3B8728;
+    margin-right: 7px;
+    margin-top: 1px;
 }
 
 .edit-header {
@@ -215,7 +230,7 @@ button {
 
 .edit-form-div {
     margin-left: 15%;
-    margin-top: 8%;
+    margin-top: 4%;
     display: grid;
     grid-template-columns: 50% 50%;
     grid-template-rows: 60% 60% 60% 60%;
