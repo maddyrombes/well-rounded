@@ -28,6 +28,9 @@ class EditRatings extends Component {
                 }}
                 >Delete Account</button>
         </div>
+        
+        <p className="edit-prompt">How are you doing for each of these categories, on a scale of 1 to 10?</p>
+
         <form className="edit-form-div" onSubmit={(e) => {
             e.preventDefault()
             this.props.updateRatings()
