@@ -148,7 +148,7 @@ class App extends Component {
     localStorage.removeItem("jwt");
   }
 
-  render() {    
+  render() {
     return (
       <div className="App">
         <header>
@@ -201,5 +201,4 @@ class App extends Component {
     );
   }
 }
-
 export default withRouter(App)

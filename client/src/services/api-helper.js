@@ -46,9 +46,7 @@ export const putUserRatings = (user_id, id, item) => {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${localStorage.getItem('jwt')}`
     }
-  }
-  console.log(opts);
-  
+  }  
   return fetch(`${baseUrl}/users/${user_id}/ratings/${id}`, opts)
     .then(resp => resp.json())
     .catch(e => e)
