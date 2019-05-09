@@ -11,6 +11,7 @@ class EditDeleteUser extends Component {
         <div className="userprofile-logo-div">
           <button className="logo"></button>
           <h1 className="userprofile-logo">well rounded</h1>
+
         </div>
 
         <Link to={`/users/${this.props.match.params.id}/edit_ratings`} className="delete-back-btn">GO BACK</Link>
