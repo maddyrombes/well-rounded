@@ -14,7 +14,12 @@ class EditRatings extends Component {
         {currentUser && 
         <>
         <div className="edit-header">
-            <h1 className="edit-logo">well rounded</h1>
+
+            <div className="userprofile-logo-div">
+                <button className="logo"></button>
+                <h1 className="userprofile-logo">well rounded</h1>
+            </div>
+            
             <button 
                 className="edit-delete-btn"
                 onClick={(e) => {

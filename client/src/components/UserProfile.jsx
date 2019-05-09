@@ -23,15 +23,19 @@ class UserProfile extends Component {
                 <h1 className="userprofile-logo">well rounded</h1>
               </div>
 
-              <Link to={`/users/${this.props.match.params.id}/edit_ratings`} className="userprofile-edit-btn">EDIT YOUR METRICS</Link>
+              <div className="userprofile-btns">
 
-              <button
-                className="userprofile-logout"
-                onClick={() => {
-                  this.props.logOut()
-                  this.props.history.push('/')
-                }}
-              >logout</button>
+                <Link to={`/users/${this.props.match.params.id}/edit_ratings`} className="userprofile-edit-btn">EDIT YOUR METRICS</Link>
+
+                <button
+                  className="userprofile-logout"
+                  onClick={() => {
+                    this.props.logOut()
+                    this.props.history.push('/')
+                  }}
+                >logout</button>
+              </div>
+
 
             </div>
 
