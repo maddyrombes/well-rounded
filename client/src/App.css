@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Sarabun|Fira+Sans|Dosis:800');
 
+/* GLOBAL */
+
 body {
     font-family: 'Sarabun', sans-serif;
     letter-spacing: 1px;
@@ -25,6 +27,18 @@ input {
     padding: 12px 20px;
     width: 120px;
 }
+
+button {
+    width: 80px;
+    height: 40px;
+    background-color: #a4cc2e;
+    border-radius: 50px;
+    font-family: 'Fira Sans', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* HOMEPAGE */
 
 .loginform-header-logo {
     margin-top: 5px;
@@ -52,35 +66,38 @@ input {
     margin: 0 10px;
 }
 
-.signup-username-form, .signup-password-form {
-    height: 15px;
-    margin: 0 10px;
-}
-
-button {
-    width: 80px;
-    height: 40px;
-    background-color: #a4cc2e;
-    border-radius: 50px;
-    font-family: 'Fira Sans', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
 .login-btn {
     margin-left: 15px;
 }
 
+.homepage-description {
+    font-size: 20px;
+    text-align: center;
+    line-height: 35px;
+}
+
 .signup-div {
     display: flex;
-    flex-direction: column;
-    margin-left: 30%;
-    margin-top: 200px;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 180px;
 }
 
 .signup-form {
     display: flex;
+    flex-direction: column;
 }
+
+.signup-username-form, .signup-password-form {
+    height: 15px;
+    margin-top: 10px;
+}
+
+.register-submit-btn {
+    margin-top: 20px;
+}
+
+/* USER PROFILE */
 
 .userprofile-header {
     display: flex;
@@ -146,7 +163,8 @@ button {
 }
 
 .piechart {
-    width: 450px;
+    margin-top: -20px;
+    width: 480px;
 }
 
 .userprofile-key {
@@ -213,6 +231,8 @@ button {
     margin-top: 1px;
 }
 
+/* EDIT RATINGS */
+
 .edit-header {
     display: flex;
     justify-content: space-between;
@@ -239,12 +259,15 @@ button {
 }
 
 .editform {
-    width: 100px;
+    width: 80px;
+    margin-left: 15px;
+    font-size: 12px;
 }
 
 .edit-submit-btn {
     width: 110px;
     margin-left: 140%;
+    padding-top: 4px;
 }
 
 .edit-delete-btn {
@@ -252,6 +275,8 @@ button {
     margin-right: 50px;
     width: 150px;
 }
+
+/* DELETE PAGE */
 
 .delete-header {
     display: flex;
@@ -299,4 +324,18 @@ button {
     font-size: 13px;
     width: 120px;
     height: 50px;
+}
+
+/* MEDIA QUERIES */
+
+@media only screen and (max-width: 1290px) {
+    .userprofile-key {
+        padding-right: 200px;
+    }
+}
+
+@media only screen and (max-width: 890px) {
+    .userprofile-key {
+        padding-right: 300px;
+    }
 }

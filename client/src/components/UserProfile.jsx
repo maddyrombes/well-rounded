@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { withRouter } from 'react-router'
-import PieChart from 'react-minimal-pie-chart';
+import PieChart from 'react-minimal-pie-chart'
 
 class UserProfile extends Component {
 
