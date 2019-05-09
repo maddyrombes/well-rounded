@@ -10,7 +10,7 @@ class EditRatings extends Component {
   render() {
     const { currentUser } = this.props
     return (
-      <div>
+        <div>
         {currentUser && 
         <>
         <div className="edit-header">
@@ -135,6 +135,7 @@ class EditRatings extends Component {
         </>
         }
       </div>
+
     )
   }
 }
