@@ -16,12 +16,14 @@ class RegisterForm extends Component {
       }}>
         <label>username</label>
         <input 
+          className="signup-username-form"
           name="username" 
           type="text" 
           value={registerForm.username} 
           onChange={handleChange}/>
         <label>password</label>
         <input 
+          className="signup-password-form"
           name="password" 
           type="password" 
           value= {registerForm.password} 
