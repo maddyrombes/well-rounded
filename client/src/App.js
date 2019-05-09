@@ -148,9 +148,7 @@ class App extends Component {
     localStorage.removeItem("jwt");
   }
 
-  render() {
-    console.log(this.state.currentUser);
-    
+  render() {    
     return (
       <div className="App">
         <header>
