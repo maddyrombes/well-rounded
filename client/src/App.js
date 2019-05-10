@@ -24,15 +24,16 @@ class App extends Component {
         username: '',
         password: ''
       },
-      ratingForm: {f_rating: '',
-      ll_rating: '',
-      ff_rating: '',
-      w_rating: '',
-      c_rating: '',
-      e_rating: '',
-      he_rating: '',
-      ss_rating: ''}
-      
+      ratingForm: {
+        f_rating: '',
+        ll_rating: '',
+        ff_rating: '',
+        w_rating: '',
+        c_rating: '',
+        e_rating: '',
+        he_rating: '',
+        ss_rating: ''
+      }
     }
     this.handleLoginAuthChange = this.handleLoginAuthChange.bind(this)
     this.handleRegisterAuthChange = this.handleRegisterAuthChange.bind(this)
@@ -56,7 +57,7 @@ class App extends Component {
   //AUTH
 
   handleLoginAuthChange(e) {
-    const { name, value } = e.target;
+    const { name, value } = e.target
     this.setState(prevState => (
       {
         loginForm: {
@@ -68,7 +69,7 @@ class App extends Component {
   }
 
   handleRegisterAuthChange(e) {
-    const { name, value } = e.target;
+    const { name, value } = e.target
     this.setState(prevState => (
       {
         registerForm: {
@@ -80,28 +81,24 @@ class App extends Component {
   }
 
   async handleRegister() {
-    await registerUser(this.state.registerForm);
+    await registerUser(this.state.registerForm)
     const token = await loginUser(this.state.registerForm)
-    const userData = decode(token.token);
-    this.setState({
-      currentUser: userData
-    })
+    const userData = decode(token.token)
+    this.setState({ currentUser: userData })
     localStorage.setItem("jwt", token.token)
     this.props.history.push(`/users/${userData.id}/edit_ratings`)
   }
 
   async handleLogin(form) {
     const token = await loginUser(form)
-    const userData = decode(token.token);
-    this.setState({
-      currentUser: userData
-    })
+    const userData = decode(token.token)
+    this.setState({ currentUser: userData })
     localStorage.setItem("jwt", token.token)
     this.props.history.push(`/users/${userData.id}`)
   }
 
   logOut() {
-    localStorage.removeItem("jwt");
+    localStorage.removeItem("jwt")
     this.setState({
       currentUser: null
     })
@@ -117,7 +114,7 @@ class App extends Component {
   //EDIT
 
   handleUpdateForm(e) {
-    const {name, value} = e.target;
+    const {name, value} = e.target
     this.setState(prevState=>({
       ratingForm: {...prevState.ratingForm, 
         [name]: value
@@ -129,7 +126,7 @@ class App extends Component {
     const ratingKeys = Object.keys(this.state.ratingForm)
     ratingKeys.forEach(async (rating, index) => {
       if (this.state.ratingForm[rating].length > 0) {
-        const newRating = await putUserRatings(this.state.currentUser.id, this.state.currentUser.ratings[index].id, this.state.ratingForm[rating] );
+        const newRating = await putUserRatings(this.state.currentUser.id, this.state.currentUser.ratings[index].id, this.state.ratingForm[rating] )
         this.setState(prevState=>({
           currentUser: {
             ...prevState.currentUser,
@@ -145,7 +142,7 @@ class App extends Component {
   async deleteUser(id) {
     await destroyUser(id)
     this.setState({ currentUser: null })
-    localStorage.removeItem("jwt");
+    localStorage.removeItem("jwt")
   }
 
   render() {
@@ -171,6 +168,7 @@ class App extends Component {
               currentUser={this.state.currentUser}
             />
           )} />
+
           <Route exact path="/users/:id" render={(props) => (
             <UserProfile
               {...props}
@@ -198,7 +196,7 @@ class App extends Component {
             />
           )} />
       </div>
-    );
+    )
   }
 }
 export default withRouter(App)

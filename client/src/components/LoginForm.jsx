@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
+import React, {Component} from 'react'
 import { withRouter } from 'react-router'
 
 class LoginForm extends Component {
 
   render() {
-    const { loginForm, handleChange, handleSubmit } = this.props;
+    const { loginForm, handleChange, handleSubmit } = this.props
 
   return (
     <div className="loginform-header">

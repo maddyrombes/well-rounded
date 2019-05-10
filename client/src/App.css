@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Sarabun|Fira+Sans|Dosis:800');
 
+/* GLOBAL */
+
 body {
     font-family: 'Sarabun', sans-serif;
     letter-spacing: 1px;
@@ -25,6 +27,18 @@ input {
     padding: 12px 20px;
     width: 120px;
 }
+
+button {
+    width: 80px;
+    height: 40px;
+    background-color: #a4cc2e;
+    border-radius: 50px;
+    font-family: 'Fira Sans', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* HOMEPAGE */
 
 .loginform-header-logo {
     margin-top: 5px;
@@ -52,35 +66,42 @@ input {
     margin: 0 10px;
 }
 
-.signup-username-form, .signup-password-form {
-    height: 15px;
-    margin: 0 10px;
-}
-
-button {
-    width: 80px;
-    height: 40px;
-    background-color: #a4cc2e;
-    border-radius: 50px;
-    font-family: 'Fira Sans', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
 .login-btn {
     margin-left: 15px;
 }
 
+.homepage-description {
+    font-size: 20px;
+    text-align: center;
+    line-height: 35px;
+}
+
+.ital {
+    font-style: italic;
+}
+
 .signup-div {
     display: flex;
-    flex-direction: column;
-    margin-left: 30%;
-    margin-top: 200px;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 180px;
 }
 
 .signup-form {
     display: flex;
+    flex-direction: column;
 }
+
+.signup-username-form, .signup-password-form {
+    height: 15px;
+    margin-top: 10px;
+}
+
+.register-submit-btn {
+    margin-top: 20px;
+}
+
+/* USER PROFILE */
 
 .userprofile-header {
     display: flex;
@@ -106,15 +127,13 @@ button {
 }
 
 .userprofile-welcome {
+    font-size: 45px;
     margin-left: 100px;
-    margin-top: 100px;
+    margin-top: 60px;
 }
 
 .userprofile-h3 {
-    margin-left: 100px;
-}
-
-.userprofile-p {
+    font-size: 25px;
     margin-left: 100px;
 }
 
@@ -148,10 +167,12 @@ button {
 }
 
 .piechart {
-    width: 450px;
+    margin-top: -20px;
+    width: 480px;
 }
 
 .userprofile-key {
+    font-size: 18px;
     margin-top: 100px;
     position: fixed;
 }
@@ -168,40 +189,63 @@ button {
 
 .f-color {
     background: #E38627;
+    margin-right: 7px;
+    margin-top: 1px;
 }
 
 .ll-color {
     background: #E2615C;
+    margin-right: 7px;
+    margin-top: 1px;
 }
 
 .ff-color {
     background: #BC5581;
+    margin-right: 7px;
+    margin-top: 1px;
 }
 
 .w-color {
     background: #81578D;
+    margin-right: 7px;
+    margin-top: 1px;
 }
 
 .c-color {
     background: #48547B;
+    margin-right: 7px;
+    margin-top: 1px;
 }
 
 .e-color {
     background: #2F4858;
+    margin-right: 7px;
+    margin-top: 1px;
 }
 
 .he-color {
     background: #00725F;
+    margin-right: 7px;
+    margin-top: 1px;
 }
 
 .ss-color {
     background: #3B8728;
+    margin-right: 7px;
+    margin-top: 1px;
 }
+
+/* EDIT RATINGS */
 
 .edit-header {
     display: flex;
     justify-content: space-between;
     background-color: white;
+}
+
+.edit-prompt {
+    text-align: center;
+    font-size: 20px;
 }
 
 .edit-logo {
@@ -215,7 +259,6 @@ button {
 
 .edit-form-div {
     margin-left: 15%;
-    margin-top: 8%;
     display: grid;
     grid-template-columns: 50% 50%;
     grid-template-rows: 60% 60% 60% 60%;
@@ -223,13 +266,36 @@ button {
     align-items: center;
 }
 
-.editform {
-    width: 100px;
+input[type=range]{
+    -webkit-appearance: none;
+    background: #F5FCED;
+    margin: 12px 20px;
+    padding: 0;
+    width: 300px;
+
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    height: 5px;
+    background: #ddd;
+    border: none;
+    border-radius: 3px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: #a4cc2e;
+    margin-top: -5px;
 }
 
 .edit-submit-btn {
     width: 110px;
     margin-left: 140%;
+    padding-top: 4px;
 }
 
 .edit-delete-btn {
@@ -237,6 +303,8 @@ button {
     margin-right: 50px;
     width: 150px;
 }
+
+/* DELETE PAGE */
 
 .delete-header {
     display: flex;
@@ -284,4 +352,18 @@ button {
     font-size: 13px;
     width: 120px;
     height: 50px;
+}
+
+/* MEDIA QUERIES */
+
+@media only screen and (max-width: 1290px) {
+    .userprofile-key {
+        padding-right: 200px;
+    }
+}
+
+@media only screen and (max-width: 890px) {
+    .userprofile-key {
+        padding-right: 300px;
+    }
 }
