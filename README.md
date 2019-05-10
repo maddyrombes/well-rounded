@@ -34,4 +34,4 @@ Well Rounded is based on the philosophy that happiness cannot be gained by the f
 
 ## erd
 
-![erd](https://github.com/maddyrombes/well-rounded/blob/master/client/src/well-rounded-erd.png)
+![erd](https://github.com/maddyrombes/well-rounded/blob/master/client/src/images/well-rounded-erd.png)
