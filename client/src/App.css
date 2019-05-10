@@ -259,7 +259,6 @@ button {
 
 .edit-form-div {
     margin-left: 15%;
-    margin-top: 2%;
     display: grid;
     grid-template-columns: 50% 50%;
     grid-template-rows: 60% 60% 60% 60%;
@@ -267,10 +266,30 @@ button {
     align-items: center;
 }
 
-.editform {
-    width: 80px;
-    margin-left: 15px;
-    font-size: 12px;
+input[type=range]{
+    -webkit-appearance: none;
+    background: #F5FCED;
+    margin: 12px 20px;
+    padding: 0;
+    width: 300px;
+
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    height: 5px;
+    background: #ddd;
+    border: none;
+    border-radius: 3px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: #a4cc2e;
+    margin-top: -5px;
 }
 
 .edit-submit-btn {
