@@ -41,3 +41,24 @@ Well Rounded is based on the philosophy that happiness cannot be gained by the f
 ## erd
 
 ![erd](https://github.com/maddyrombes/well-rounded/blob/master/client/images/well-rounded-erd.png)
+
+## code snippet
+
+This edit function became more complex than I originally imagined.
+
+```  
+updateRatings() {
+    const ratingKeys = Object.keys(this.state.ratingForm)
+    ratingKeys.forEach(async (rating, index) => {
+      if (this.state.ratingForm[rating].length > 0) {
+        const newRating = await putUserRatings(this.state.currentUser.id, this.state.currentUser.ratings[index].id, this.state.ratingForm[rating] )
+        this.setState(prevState=>({
+          currentUser: {
+            ...prevState.currentUser,
+            ratings: prevState.currentUser.ratings.map(rating => (rating.id === newRating.id ? newRating : rating))
+          }
+        }))
+      }
+    })
+  }
+```
