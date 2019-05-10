@@ -1,4 +1,4 @@
-# well rounded
+# WELL ROUNDED
 
 Well Rounded is based on the philosophy that happiness cannot be gained by the fulfillment any single aspect of life. We believe that to be happy is to be well rounded, and we break this up into eight core elements: FINANCE, LOVE LIFE, your relationship with FRIENDS AND FAMILY, WORK, CREATIVITY, EXERCISE, HEALTHY EATING, and SPIRITUALITY / SELF.
 
@@ -34,4 +34,4 @@ Well Rounded is based on the philosophy that happiness cannot be gained by the f
 
 ## erd
 
-![erd](https://github.com/maddyrombes/well-rounded/)
+![erd](https://github.com/maddyrombes/well-rounded/blob/master/client/src/images/well-rounded-erd.png)
