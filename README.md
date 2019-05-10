@@ -32,6 +32,11 @@ Well Rounded is based on the philosophy that happiness cannot be gained by the f
 - npm install
 - npm start
 
+## user stories
+
+- As a user, I want to be able to show my daily metrics so that I can have awareness of how I am doing with the eight core categories.
+- As a user, I want to be able to edit my ratings so that I can change them based on my status each day.
+
 ## wireframes
 
 ![wf1](https://github.com/maddyrombes/well-rounded/blob/master/client/images/wf-1.png)
