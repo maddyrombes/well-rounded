@@ -32,6 +32,12 @@ Well Rounded is based on the philosophy that happiness cannot be gained by the f
 - npm install
 - npm start
 
+## wireframes
+
+![wf1](https://github.com/maddyrombes/well-rounded/blob/master/client/images/wf-1.png)
+![wf2](https://github.com/maddyrombes/well-rounded/blob/master/client/images/wf-2.png)
+![wf2](https://github.com/maddyrombes/well-rounded/blob/master/client/images/wf-3.png)
+
 ## erd
 
-![erd](https://github.com/maddyrombes/well-rounded/blob/master/client/src/images/well-rounded-erd.png)
+![erd](https://github.com/maddyrombes/well-rounded/blob/master/client/images/well-rounded-erd.png)
